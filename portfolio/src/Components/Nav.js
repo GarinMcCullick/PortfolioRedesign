@@ -17,6 +17,7 @@ const Container = styled.div`
   left: 1;
   bottom: 50px;
   border-radius: 50px;
+  background-color: #282c34;
 `;
 
 const Ul = styled.ul`
