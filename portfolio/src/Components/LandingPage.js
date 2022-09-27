@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.section`
   height: 100vh;
   width: 100%;
   display: flex;
@@ -46,7 +46,7 @@ const PictureContainer = styled.div`
 
 export default function LandingPage() {
   return (
-    <Container id="Landing">
+    <Container id="/">
       <InnerContainer>
         <About>
           <Title>

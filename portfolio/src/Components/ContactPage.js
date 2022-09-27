@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { ImCheckmark } from "react-icons/im";
 
-const Container = styled.div`
+const Container = styled.section`
   height: 100vh;
   width: 100%;
   display: flex;

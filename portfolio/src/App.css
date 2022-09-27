@@ -9,3 +9,18 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+section {
+  min-height: 100vh;
+  height:100vh;
+  max-height:100vh;
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
+  display: inline-block;
+  margin-top:6px;/*these margins are here because the nav smooth scroll offset is broke and for whatever reason this works.*/
+  margin-bottom:5px;
+}
+
+.navContainer .active{
+  color: crimson;
+}
