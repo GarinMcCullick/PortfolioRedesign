@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaGlobe, FaGithub } from "react-icons/fa";
 
-const Container = styled.div`
+const Container = styled.section`
   height: 100vh;
   width: 100%;
   display: flex;

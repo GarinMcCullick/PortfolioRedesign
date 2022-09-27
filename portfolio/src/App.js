@@ -5,6 +5,7 @@ import LandingPage from "./Components/LandingPage";
 import Nav from "./Components/Nav";
 import ProjectsPage from "./Components/ProjectsPage";
 import SkillsPage from "./Components/SkillsPage";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <SkillsPage />
         <ProjectsPage />
         <ContactPage />
+        <Footer />
       </header>
     </div>
   );

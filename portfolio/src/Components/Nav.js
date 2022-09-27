@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import "../App.css";
 import styled from "styled-components";
-import { Link } from "react-scroll";
+import { Link as LinkScroll } from "react-scroll";
 import {
   GoPerson,
   GoCommentDiscussion,
@@ -37,110 +38,71 @@ const Li = styled.li`
 `;
 
 export default function Nav() {
-  const [active1, setActive1] = useState(false);
-  const [active2, setActive2] = useState(false);
-  const [active3, setActive3] = useState(false);
-  const [active4, setActive4] = useState(false);
-  const [active5, setActive5] = useState(false);
-  const handleClick1 = () =>
-    setActive1(true) &
-    setActive2(false) &
-    setActive3(false) &
-    setActive4(false) &
-    setActive5(false);
-  const handleClick2 = () =>
-    setActive1(false) &
-    setActive2(true) &
-    setActive3(false) &
-    setActive4(false) &
-    setActive5(false);
-  const handleClick3 = () =>
-    setActive3(true) &
-    setActive1(false) &
-    setActive2(false) &
-    setActive4(false) &
-    setActive5(false);
-  const handleClick4 = () =>
-    setActive1(false) &
-    setActive2(false) &
-    setActive3(false) &
-    setActive4(true) &
-    setActive5(false);
-  const handleClick5 = () =>
-    setActive1(false) &
-    setActive2(false) &
-    setActive3(false) &
-    setActive4(false) &
-    setActive5(true);
-  console.log(active1);
-
   return (
-    <Container>
-      <Ul>
-        <Li>
-          <Link
-            to="Landing"
-            spy={true}
-            smooth={true}
-            offset={50}
-            duration={500}
-          >
-            <GoPerson
-              size={30}
-              onClick={handleClick1}
-              style={{ color: active1 ? "red" : "white" }}
-            />
-          </Link>
-        </Li>
-        <Li>
-          <Link to="About" spy={true} smooth={true} offset={50} duration={500}>
-            <GoBook
-              size={30}
-              onClick={handleClick2}
-              style={{ color: active2 ? "red" : "white" }}
-            />
-          </Link>
-        </Li>
-        <Li>
-          <Link to="Skills" spy={true} smooth={true} offset={50} duration={500}>
-            <GoGraph
-              size={30}
-              onClick={handleClick3}
-              style={{ color: active3 ? "red" : "white" }}
-            />
-          </Link>
-        </Li>
-        <Li>
-          <Link
-            to="Projects"
-            spy={true}
-            smooth={true}
-            offset={50}
-            duration={500}
-          >
-            <GoFileCode
-              size={30}
-              onClick={handleClick4}
-              style={{ color: active4 ? "red" : "white" }}
-            />
-          </Link>
-        </Li>
-        <Li>
-          <Link
-            to="Contact"
-            spy={true}
-            smooth={true}
-            offset={50}
-            duration={500}
-          >
-            <GoCommentDiscussion
-              size={30}
-              onClick={handleClick5}
-              style={{ color: active5 ? "red" : "white" }}
-            />
-          </Link>
-        </Li>
-      </Ul>
-    </Container>
+    <>
+      <Container className="navContainer">
+        <Ul>
+          <Li>
+            <LinkScroll
+              to="/"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+            >
+              <GoPerson size={30} />
+            </LinkScroll>
+          </Li>
+          <Li>
+            <LinkScroll
+              activeClass="active"
+              to="About"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+            >
+              <GoBook size={30} />
+            </LinkScroll>
+          </Li>
+          <Li>
+            <LinkScroll
+              activeClass="active"
+              to="Skills"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={400}
+            >
+              <GoGraph size={30} />
+            </LinkScroll>
+          </Li>
+          <Li>
+            <LinkScroll
+              activeClass="active"
+              to="Projects"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={400}
+            >
+              <GoFileCode size={30} />
+            </LinkScroll>
+          </Li>
+          <Li>
+            <LinkScroll
+              activeClass="active"
+              to="Contact"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={300}
+            >
+              <GoCommentDiscussion size={30} />
+            </LinkScroll>
+          </Li>
+        </Ul>
+      </Container>
+    </>
   );
 }
