@@ -12,7 +12,7 @@ import {
 const Container = styled.div`
   height: 60px;
   width: 15%;
-  border: 1px solid red;
+  border: 2px solid crimson;
   position: fixed;
   left: 1;
   bottom: 50px;

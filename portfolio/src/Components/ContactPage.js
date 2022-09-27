@@ -1,5 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
+import { ImCheckmark } from "react-icons/im";
 
 const Container = styled.div`
   height: 100vh;
@@ -86,12 +87,69 @@ const ProjectInput = styled.textarea`
   font-size: 12px;
 `;
 
+const anime = keyframes`
+0% {
+      -webkit-transform: translateY(50%);
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+    }
+`;
+
 const Button = styled.button`
+  :hover {
+    cursor: pointer;
+  }
+
+  background-color: white;
+
+  :after {
+    content: "Submit!";
+  }
   width: 20%;
   height: 7%;
 `;
 
+const SuccessButton = styled.button`
+  :hover {
+    cursor: pointer;
+  }
+  background-color: lightgreen;
+  :before {
+    animation: ${anime} 2s linear;
+  }
+  width: 20%;
+  height: 7%;
+`;
+
+const Checkmark = styled(ImCheckmark)`
+  animation: ${anime} 1s linear;
+`;
+
 export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const submitClick = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  var submitBtn;
+  if (submitted === false)
+    submitBtn = (
+      <Button type="submit" value="Submit" onClick={submitClick}></Button>
+    );
+  else {
+    submitBtn = (
+      <SuccessButton type="submit" value="Submit" onClick={submitClick}>
+        {<Checkmark />}
+      </SuccessButton>
+    );
+  }
+
   return (
     <Container id="Contact">
       <InnerContainer>
@@ -107,9 +165,7 @@ export default function ContactPage() {
             <EmailInput placeholder="Insert Your Email"></EmailInput>
             <ProjectInput placeholder="Write Your Project"></ProjectInput>
           </Form>
-          <Button type="submit" value="submit">
-            Send Message
-          </Button>
+          {submitBtn}
         </RightContainer>
       </InnerContainer>
     </Container>
