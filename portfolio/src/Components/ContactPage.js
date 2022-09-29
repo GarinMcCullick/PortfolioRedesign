@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { ImCheckmark } from "react-icons/im";
+import axios from "axios";
 
 const Container = styled.section`
   height: 100vh;
@@ -150,18 +151,33 @@ export default class ContactPage extends React.Component {
       lName: "",
       email: "",
       message: "",
-      submitted: null,
+      submitted: false,
     };
     this.submitClick = this.submitClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
+  async postForm() {
+    const res = await axios.post(
+      "http://localhost/Portfolio-Redesign/PortfolioRedesign/portfolio/api/index.php",
+      this.state,
+      {
+        method: "POST",
+        config: { headers: { "Content-Type": "multipart/form-data" } },
+      }
+    );
+    return res;
+  }
+
   submitClick(e) {
     e.preventDefault();
-
+    //setting the submitted state to true to trigger button animation.
     this.setState({ submitted: true }, () => {
       console.log("Form Data:", this.state);
     });
+    /////////////////////////////////////////////////
+    //using axios to send form data to php backend
+    this.postForm();
   }
 
   handleChange(e) {
