@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 import { ImCheckmark } from "react-icons/im";
 
@@ -67,16 +67,29 @@ const Form = styled.form`
 `;
 
 const NameInput = styled.input`
-  width: 60%;
-  height: 10%;
+  width: 70%;
+  height: 100%;
   font-size: 24px;
   border: none;
 `;
 
 const EmailInput = styled.input`
+  width: 75%;
+  height: 100%;
+  font-size: 24px;
+`;
+
+const Span = styled.span`
   width: 60%;
   height: 10%;
-  font-size: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Label = styled.label`
+  width: 25%;
 `;
 
 const ProjectInput = styled.textarea`
@@ -129,45 +142,103 @@ const Checkmark = styled(ImCheckmark)`
   animation: ${anime} 1s linear;
 `;
 
-export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const submitClick = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  var submitBtn;
-  if (submitted === false)
-    submitBtn = (
-      <Button type="submit" value="Submit" onClick={submitClick}></Button>
-    );
-  else {
-    submitBtn = (
-      <SuccessButton type="submit" value="Submit" onClick={submitClick}>
-        {<Checkmark />}
-      </SuccessButton>
-    );
+export default class ContactPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fName: "",
+      lName: "",
+      email: "",
+      message: "",
+      submitted: null,
+    };
+    this.submitClick = this.submitClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  return (
-    <Container id="Contact">
-      <InnerContainer>
-        <LeftContainer>
-          <Box></Box>
-          <Box></Box>
-          <Box></Box>
-        </LeftContainer>
-        <RightContainer>
-          <Title>Write me your project</Title>
-          <Form>
-            <NameInput placeholder="Insert Your Name"></NameInput>
-            <EmailInput placeholder="Insert Your Email"></EmailInput>
-            <ProjectInput placeholder="Write Your Project"></ProjectInput>
-          </Form>
-          {submitBtn}
-        </RightContainer>
-      </InnerContainer>
-    </Container>
-  );
+  submitClick(e) {
+    e.preventDefault();
+
+    this.setState({ submitted: true }, () => {
+      console.log("Form Data:", this.state);
+    });
+  }
+
+  handleChange(e) {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  render() {
+    return (
+      <Container id="Contact">
+        <InnerContainer>
+          <LeftContainer>
+            <Box></Box>
+            <Box></Box>
+            <Box></Box>
+          </LeftContainer>
+          <RightContainer>
+            <Title>Write me your project</Title>
+            <Form onSubmit={this.submitClick}>
+              <Span>
+                <Label htmlFor="fName">First Name</Label>
+                <NameInput
+                  name="fName"
+                  id="fName"
+                  placeholder="Insert Your First Name"
+                  onChange={this.handleChange}
+                ></NameInput>
+              </Span>
+              <Span>
+                <Label htmlFor="lName">Last Name</Label>
+                <NameInput
+                  name="lName"
+                  id="lName"
+                  placeholder="Insert Your Last Name"
+                  onChange={this.handleChange}
+                ></NameInput>
+              </Span>
+              <Span>
+                <Label htmlFor="email">Email</Label>
+                <EmailInput
+                  name="email"
+                  id="email"
+                  placeholder="Insert Your Email"
+                  onChange={this.handleChange}
+                ></EmailInput>
+              </Span>
+              <ProjectInput
+                name="message"
+                id="message"
+                placeholder="Write Your Project"
+                onChange={this.handleChange}
+              ></ProjectInput>
+
+              {this.state.submitted ? (
+                <SuccessButton
+                  type="submit"
+                  value="Submit"
+                  onClick={this.submitClick}
+                >
+                  <Checkmark />
+                </SuccessButton>
+              ) : (
+                <Button
+                  type="submit"
+                  value="Submit"
+                  onClick={this.submitClick}
+                />
+              )}
+            </Form>
+          </RightContainer>
+        </InnerContainer>
+      </Container>
+    );
+  }
 }
