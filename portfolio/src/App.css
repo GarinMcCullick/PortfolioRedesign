@@ -8,8 +8,32 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
+/*scroll bar style*/
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #dc143c #282c34;
+    
+  }
 
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #282c34;
+    
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #dc143c;
+    border-radius: 10px;
+    
+  }
 section {
   min-height: 100vh;
   height:100vh;

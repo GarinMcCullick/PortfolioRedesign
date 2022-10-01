@@ -1,5 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import {
+  ImFilePdf,
+  ImArrowRight2,
+  ImStack,
+  ImUngroup,
+  ImDisplay,
+} from "react-icons/im";
 
 const Container = styled.section`
   height: 100vh;
@@ -48,10 +55,13 @@ const PicContainer = styled.div`
   align-items: center;
 `;
 
-const Pic = styled.div`
-  width: 50%;
-  height: 50%;
-  border: 1px solid red;
+const Pic = styled.img`
+  height: 60%;
+  width: 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 
 const About = styled.div`
@@ -76,6 +86,35 @@ const Box = styled.div`
   height: 80%;
   border: 1px solid red;
   border-radius: 25px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: start;
+  :hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+`;
+
+const Span = styled.span`
+  width: auto;
+  height: 100%;
+  margin-left: 2rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: start;
+  font-size: 24px;
+`;
+
+const Span2 = styled.span`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+`;
+
+const ArrowRight = styled(ImArrowRight2)`
+  margin-left: 1rem;
 `;
 
 const Section2 = styled.div`
@@ -90,6 +129,26 @@ const Section3 = styled.div`
   height: 15%;
 `;
 
+const Button = styled.button`
+  width: 100px;
+  height: 50px;
+  margin-top: 50px;
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const A = styled.a`
+  width: 100%;
+  height: 100%;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
 export default function AboutPage() {
   return (
     <Container id="About">
@@ -100,13 +159,38 @@ export default function AboutPage() {
         </Title>
         <Body>
           <PicContainer>
-            <Pic></Pic>
+            <Pic src={process.env.PUBLIC_URL + "/profile4.jpg"}></Pic>
           </PicContainer>
           <About>
             <Section1>
-              <Box></Box>
-              <Box></Box>
-              <Box></Box>
+              <Box>
+                <Span>
+                  <ImStack />
+                  <p>full stack web designer</p>
+                  <Span2>
+                    view more
+                    <ArrowRight />
+                  </Span2>
+                </Span>
+              </Box>
+              <Box>
+                <Span>
+                  <ImUngroup />
+                  <p>ui/ux engineer</p>{" "}
+                  <Span2>
+                    view more <ArrowRight />
+                  </Span2>
+                </Span>
+              </Box>
+              <Box>
+                <Span>
+                  <ImDisplay />
+                  <p>Interface Design</p>{" "}
+                  <Span2>
+                    view more <ArrowRight />
+                  </Span2>
+                </Span>
+              </Box>
             </Section1>
             <Section2>
               <p>
@@ -122,7 +206,17 @@ export default function AboutPage() {
                 Lorem Ipsum
               </p>
             </Section2>
-            <Section3>cv download button</Section3>
+            <Section3>
+              <Button>
+                <A
+                  href={process.env.PUBLIC_URL + "/Resume.pdf"}
+                  target="_blank"
+                >
+                  <ImFilePdf size={20} />
+                  Open CV
+                </A>
+              </Button>
+            </Section3>
           </About>
         </Body>
       </InnerContainer>

@@ -49,6 +49,15 @@ const PictureContainer = styled.div`
   align-items: center;
 `;
 
+const Pic = styled.img`
+  height: 60%;
+  width: 60%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+`;
+
 export default function LandingPage() {
   return (
     <Container id="/">
@@ -75,9 +84,7 @@ export default function LandingPage() {
           </Body>
         </About>
         <PictureContainer>
-          <div style={{ height: "60%", width: "60%", border: "1px solid red" }}>
-            My Picture
-          </div>
+          <Pic src={process.env.PUBLIC_URL + "/profile2.jpg"}></Pic>
         </PictureContainer>
       </InnerContainer>
     </Container>
