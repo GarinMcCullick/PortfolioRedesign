@@ -29,6 +29,11 @@ const Title = styled.div`
   font-size: 48px;
 `;
 
+const Span = styled.span`
+  color: crimson;
+  border-bottom: 2px solid crimson;
+`;
+
 const Body = styled.div`
   width: 90%;
   height: auto;
@@ -50,7 +55,9 @@ export default function LandingPage() {
       <InnerContainer>
         <About>
           <Title>
-            <h1>Hi My name is Garin McCullick</h1>
+            <h1>
+              Hi My name is <Span>Garin McCullick</Span>
+            </h1>
           </Title>
           <Body>
             <p>
