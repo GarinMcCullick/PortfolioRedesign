@@ -157,17 +157,29 @@ export default function SkillsPage() {
                 <Li>
                   <GoVerified />
                   <Span>
-                    MongoDB<P>Basic</P>
+                    PHP<P>Advanced</P>
                   </Span>
                 </Li>
                 <Li>
                   <GoVerified />
                   <Span>
-                    Express<P>Basic</P>
+                    mySQL<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    MongoDB<P>Basic</P>
                   </Span>
                 </Li>
               </Ul>
               <Ul>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Express JS<P>Basic</P>
+                  </Span>
+                </Li>
                 <Li>
                   <GoVerified />
                   <Span>

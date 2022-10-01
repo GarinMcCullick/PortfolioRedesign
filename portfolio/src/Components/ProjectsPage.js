@@ -85,6 +85,22 @@ const Icons = styled.div`
   color: #282c34;
 `;
 
+const Globe = styled(FaGlobe)`
+  font-size: 60px;
+  :hover {
+    color: crimson;
+    cursor: pointer;
+  }
+`;
+
+const Github = styled(FaGithub)`
+  font-size: 60px;
+  :hover {
+    color: crimson;
+    cursor: pointer;
+  }
+`;
+
 export default function ProjectsPage() {
   return (
     <Container id="Projects">
@@ -98,24 +114,24 @@ export default function ProjectsPage() {
             <Pic></Pic>
             <Label>Project</Label>
             <Icons>
-              <FaGlobe size={60} />
-              <FaGithub size={60} />
+              <Globe />
+              <Github />
             </Icons>
           </Box>
           <Box>
             <Pic></Pic>
             <Label>Project</Label>
             <Icons>
-              <FaGlobe size={60} />
-              <FaGithub size={60} />
+              <Globe />
+              <Github />
             </Icons>
           </Box>
           <Box>
             <Pic></Pic>
             <Label>Project</Label>
             <Icons>
-              <FaGlobe size={60} />
-              <FaGithub size={60} />
+              <Globe />
+              <Github />
             </Icons>
           </Box>
         </Body>

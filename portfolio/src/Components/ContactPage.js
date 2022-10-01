@@ -1,6 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { ImCheckmark } from "react-icons/im";
+import {
+  ImCheckmark,
+  ImPhone,
+  ImMail4,
+  ImLinkedin,
+  ImArrowRight2,
+} from "react-icons/im";
 import axios from "axios";
 
 const Container = styled.section`
@@ -31,10 +37,34 @@ const LeftContainer = styled.div`
 `;
 
 const Box = styled.div`
+  color: #282c34;
   width: 50%;
   height: 30%;
   background-color: white;
   border-radius: 25px;
+  :hover {
+    cursor: pointer;
+    box-shadow: 0 24px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    color: rgb(0, 0, 0);
+  }
+`;
+
+const A = styled.a`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  text-decoration: none;
+  text-decoration-style: none;
+  color: rgb(60, 60, 60);
+  :visited {
+    color: rgb(60, 60, 60);
+  }
+  :hover {
+    color: black;
+  }
 `;
 
 const RightContainer = styled.div`
@@ -195,9 +225,32 @@ export default class ContactPage extends React.Component {
       <Container id="Contact">
         <InnerContainer>
           <LeftContainer>
-            <Box></Box>
-            <Box></Box>
-            <Box></Box>
+            <Box>
+              <A href="tel:5736808460" target="_blank">
+                <ImPhone />
+                <p>573-680-8460</p>
+                <p>Phone</p>
+                <ImArrowRight2 />
+              </A>
+            </Box>
+            <Box>
+              <A href="mailto: glmccullick@gmail.com" target="_blank">
+                <ImMail4 />
+                <p>glmccullick@gmail.com</p>
+                <p>Email</p>
+                <ImArrowRight2 />
+              </A>
+            </Box>
+            <Box>
+              <A
+                href="https://www.linkedin.com/in/garin-mccullick-891a2320a/"
+                target="_blank"
+              >
+                <ImLinkedin />
+                <p>LinkedIn</p>
+                <ImArrowRight2 />
+              </A>
+            </Box>
           </LeftContainer>
           <RightContainer>
             <Title>Write me your project</Title>
