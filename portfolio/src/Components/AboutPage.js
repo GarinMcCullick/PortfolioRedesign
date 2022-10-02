@@ -1,11 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
+
 import {
   ImFilePdf,
   ImArrowRight2,
   ImStack,
   ImUngroup,
   ImDisplay,
+  ImCross,
+  ImCheckmark,
 } from "react-icons/im";
 
 const Container = styled.section`
@@ -81,7 +84,37 @@ const Section1 = styled.div`
   align-items: center;
 `;
 
-const Box = styled.div`
+const Box1 = styled.div`
+  width: 30%;
+  height: 80%;
+  border: 1px solid red;
+  border-radius: 25px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: start;
+  :hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+`;
+
+const Box2 = styled.div`
+  width: 30%;
+  height: 80%;
+  border: 1px solid red;
+  border-radius: 25px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: start;
+  :hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+`;
+
+const Box3 = styled.div`
   width: 30%;
   height: 80%;
   border: 1px solid red;
@@ -113,8 +146,26 @@ const Span2 = styled.span`
   align-items: center;
 `;
 
+const slide = keyframes` 
+0%,
+100% {
+  transform: translate(0, 0);
+}
+
+50% {
+  transform: translate(10px, 0);
+}
+`;
+
 const ArrowRight = styled(ImArrowRight2)`
   margin-left: 1rem;
+`;
+
+const ArrowRight2 = styled(ImArrowRight2)`
+  margin-left: 1rem;
+
+  animation: ${slide} 1s ease-in-out infinite;
+  margin-left: 9px;
 `;
 
 const Section2 = styled.div`
@@ -149,7 +200,223 @@ const A = styled.a`
   align-items: center;
 `;
 
+const InfoContainer = styled.div`
+  width: 40%;
+  height: 55%;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  transform: translate(-22%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  color: #282c34;
+  z-index: 10;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  line-height: 2rem;
+`;
+
+const Exit = styled.div`
+  width: 5%;
+  height: 5%;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: grey;
+  font-size: 20px;
+`;
+
+const Checkmark = styled(ImCheckmark)`
+  color: green;
+  font-size: 18px;
+  margin-right: 1rem;
+`;
+
 export default function AboutPage() {
+  const [view1, setView1] = useState(false);
+  const [view2, setView2] = useState(false);
+  const [view3, setView3] = useState(false);
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
+
+  function DefaultShow1() {
+    return (
+      <Span
+        onMouseEnter={() => setHover1(true)}
+        onMouseLeave={() => setHover1(false)}
+      >
+        <ImStack />
+        <p>Full Stack Web Designer</p>
+        <Span2>
+          view more
+          {hover1 ? <ArrowRight2 /> : <ArrowRight />}
+        </Span2>
+      </Span>
+    );
+  }
+
+  function InfoShow1() {
+    return (
+      <>
+        <InfoContainer>
+          <Exit>
+            <ImCross />
+          </Exit>
+          <H3>Full Stack Web Designer</H3>
+          <p>Providing quality code to clients and companies!</p>
+          <ul>
+            <li>
+              <Checkmark />
+              Development of user interfaces.
+            </li>
+            <li>
+              <Checkmark />
+              web page development.
+            </li>
+            <li>
+              <Checkmark />
+              Clean and functional code.
+            </li>
+            <li>
+              <Checkmark />
+              Creation of UX interactions.
+            </li>
+          </ul>
+        </InfoContainer>
+        <Span>
+          <ImStack />
+          <p>Full Stack Web Designer</p>
+          <Span2>
+            view more
+            <ArrowRight />
+          </Span2>
+        </Span>
+      </>
+    );
+  }
+
+  function DefaultShow2() {
+    return (
+      <Span
+        onMouseEnter={() => setHover2(true)}
+        onMouseLeave={() => setHover2(false)}
+      >
+        <ImUngroup />
+        <p>UI/UX Engineer</p>
+        <Span2>view more {hover2 ? <ArrowRight2 /> : <ArrowRight />}</Span2>
+      </Span>
+    );
+  }
+
+  function InfoShow2() {
+    return (
+      <>
+        <InfoContainer>
+          <Exit>
+            <ImCross />
+          </Exit>
+          <H3>UI/UX Designer</H3>
+          <p>Providing quality code to clients and companies!</p>
+          <ul>
+            <li>
+              <Checkmark />
+              Development of user interfaces.
+            </li>
+            <li>
+              <Checkmark />
+              web page development.
+            </li>
+            <li>
+              <Checkmark />
+              Clean and functional code.
+            </li>
+            <li>
+              <Checkmark />
+              Creation of UX interactions.
+            </li>
+          </ul>
+        </InfoContainer>
+        <Span>
+          <ImUngroup />
+          <p>UI/UX Engineer</p>
+          <Span2>
+            view more <ArrowRight />
+          </Span2>
+        </Span>
+      </>
+    );
+  }
+
+  function DefaultShow3() {
+    return (
+      <Span
+        onMouseEnter={() => setHover3(true)}
+        onMouseLeave={() => setHover3(false)}
+      >
+        <ImDisplay />
+        <p>Interface Designer</p>
+        <Span2>view more {hover3 ? <ArrowRight2 /> : <ArrowRight />}</Span2>
+      </Span>
+    );
+  }
+
+  function InfoShow3() {
+    return (
+      <>
+        <InfoContainer>
+          <Exit>
+            <ImCross />
+          </Exit>
+          <H3>Interface Designer</H3>
+          <p>Providing quality code to clients and companies!</p>
+          <ul>
+            <li>
+              <Checkmark />
+              Development of user interfaces.
+            </li>
+            <li>
+              <Checkmark />
+              web page development.
+            </li>
+            <li>
+              <Checkmark />
+              Clean and functional code.
+            </li>
+            <li>
+              <Checkmark />
+              Creation of UX interactions.
+            </li>
+          </ul>
+        </InfoContainer>
+        <Span>
+          <ImDisplay />
+          <p>Interface Designer</p>
+          <Span2>
+            view more <ArrowRight />
+          </Span2>
+        </Span>
+      </>
+    );
+  }
+
+  const handleView1 = () => {
+    setView1(!view1);
+  };
+
+  const handleView2 = () => {
+    setView2(!view2);
+  };
+
+  const handleView3 = () => {
+    setView3(!view3);
+  };
+
   return (
     <Container id="About">
       <InnerContainer>
@@ -163,34 +430,15 @@ export default function AboutPage() {
           </PicContainer>
           <About>
             <Section1>
-              <Box>
-                <Span>
-                  <ImStack />
-                  <p>full stack web designer</p>
-                  <Span2>
-                    view more
-                    <ArrowRight />
-                  </Span2>
-                </Span>
-              </Box>
-              <Box>
-                <Span>
-                  <ImUngroup />
-                  <p>ui/ux engineer</p>{" "}
-                  <Span2>
-                    view more <ArrowRight />
-                  </Span2>
-                </Span>
-              </Box>
-              <Box>
-                <Span>
-                  <ImDisplay />
-                  <p>Interface Design</p>{" "}
-                  <Span2>
-                    view more <ArrowRight />
-                  </Span2>
-                </Span>
-              </Box>
+              <Box1 onClick={handleView1}>
+                {view1 ? InfoShow1() : DefaultShow1()}
+              </Box1>
+              <Box2 onClick={handleView2}>
+                {view2 ? InfoShow2() : DefaultShow2()}
+              </Box2>
+              <Box3 onClick={handleView3}>
+                {view3 ? InfoShow3() : DefaultShow3()}
+              </Box3>
             </Section1>
             <Section2>
               <p>
