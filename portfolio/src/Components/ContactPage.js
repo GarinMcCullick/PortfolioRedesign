@@ -201,13 +201,23 @@ export default class ContactPage extends React.Component {
 
   submitClick(e) {
     e.preventDefault();
-    //setting the submitted state to true to trigger button animation.
-    this.setState({ submitted: true }, () => {
-      console.log("Form Data:", this.state);
-    });
-    /////////////////////////////////////////////////
-    //using axios to send form data to php backend
-    this.postForm();
+    //validating that all fields are filled out. this is temp way of doing it ideally should be done per field in the form for more specific field input errors.
+    if (
+      this.state.fName.length === 0 ||
+      this.state.lName.length === 0 ||
+      this.state.email.length === 0 ||
+      this.state.message.length === 0
+    ) {
+      return alert("please make sure all fields are filled in thank you!");
+    } else {
+      //setting the submitted state to true to trigger button animation.
+      this.setState({ submitted: true }, () => {
+        console.log("Form Data:", this.state);
+      });
+      /////////////////////////////////////////////////
+      //using axios to send form data to php backend
+      this.postForm();
+    }
   }
 
   handleChange(e) {
@@ -262,6 +272,7 @@ export default class ContactPage extends React.Component {
                   id="fName"
                   placeholder="Insert Your First Name"
                   onChange={this.handleChange}
+                  required
                 ></NameInput>
               </Span>
               <Span>
