@@ -183,7 +183,7 @@ export default function SkillsPage() {
                 <Li>
                   <GoVerified />
                   <Span>
-                    Node Js<P>Intermediate</P>
+                    Laravel 8<P>Advanced</P>
                   </Span>
                 </Li>
                 <Li>
