@@ -442,16 +442,11 @@ export default function AboutPage() {
             </Section1>
             <Section2>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum
+                Hi, I'm Garin. I'm a Jr Web Developer that loves programming.
+                Mainly I work in PHP, Javascript, React, HTML5, and CSS3. I love
+                meeting new and creative people! I play games in my freetime and
+                really enjoy watching profesional esports like Valorant and
+                League of Legends.
               </p>
             </Section2>
             <Section3>
