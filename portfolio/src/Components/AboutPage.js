@@ -56,6 +56,9 @@ const PicContainer = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Pic = styled.img`
@@ -65,6 +68,9 @@ const Pic = styled.img`
   background-repeat: no-repeat;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const About = styled.div`
@@ -73,6 +79,9 @@ const About = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Section1 = styled.div`
