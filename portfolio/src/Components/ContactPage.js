@@ -45,7 +45,7 @@ const Box = styled.div`
   :hover {
     cursor: pointer;
     box-shadow: 0 24px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    color: rgb(0, 0, 0);
+    background-color: rgba(220, 20, 60, 0.2);
   }
 `;
 
@@ -63,7 +63,7 @@ const A = styled.a`
     color: rgb(60, 60, 60);
   }
   :hover {
-    color: black;
+    color: white;
   }
 `;
 
@@ -146,6 +146,7 @@ const anime = keyframes`
 const Button = styled.button`
   :hover {
     cursor: pointer;
+    background-color: #50c878;
   }
 
   background-color: white;

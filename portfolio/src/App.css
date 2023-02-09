@@ -15,7 +15,7 @@
   /* Firefox */
   * {
     scrollbar-width: auto;
-    scrollbar-color: #dc143c #282c34;
+    scrollbar-color: #dc143c lightsteelblue;
     
   }
 
@@ -25,8 +25,7 @@
   }
 
   *::-webkit-scrollbar-track {
-    background: #282c34;
-    
+    background: lightsteelblue;
   }
 
   *::-webkit-scrollbar-thumb {

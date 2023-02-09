@@ -136,6 +136,12 @@ export default function SkillsPage() {
                 <Li>
                   <GoVerified />
                   <Span>
+                    Wordpress<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
                     Git<P>Intermediate</P>
                   </Span>
                 </Li>
@@ -163,17 +169,23 @@ export default function SkillsPage() {
                 <Li>
                   <GoVerified />
                   <Span>
+                    Java<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
                     mySQL<P>Intermediate</P>
                   </Span>
                 </Li>
+              </Ul>
+              <Ul>
                 <Li>
                   <GoVerified />
                   <Span>
                     MongoDB<P>Basic</P>
                   </Span>
                 </Li>
-              </Ul>
-              <Ul>
                 <Li>
                   <GoVerified />
                   <Span>
@@ -184,12 +196,6 @@ export default function SkillsPage() {
                   <GoVerified />
                   <Span>
                     Laravel 8<P>Advanced</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Firebase<P>Basic</P>
                   </Span>
                 </Li>
               </Ul>

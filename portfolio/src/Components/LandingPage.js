@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { IoTrendingDownOutline } from "react-icons/io5";
 
 const Container = styled.section`
   height: 100vh;
@@ -25,16 +26,16 @@ const About = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: 10%;
+  padding: 5%;
   width: 100%;
   height: 20%;
   text-align: center;
   font-size: 48px;
-  border: 5px double crimson;
+  border-bottom: 5px solid crimson;
+  border-top: 5px solid crimson;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 25px;
 `;
 
 const Span = styled.span`
@@ -59,16 +60,41 @@ const Pic = styled.img`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 
+const Div = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+`;
+
+const Span2 = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+`;
+
+const DoubleDown = styled(IoTrendingDownOutline)`
+  margin-top: -4px;
+  font-size: 70px;
+  color: crimson;
+  transform: rotate(45deg);
+`;
+
 export default function LandingPage() {
   return (
     <Container id="/">
       <InnerContainer>
         <About>
-          <Title>
-            <h1>
-              Hi My name is <Span>Garin McCullick</Span>
-            </h1>
-          </Title>
+          <Div>
+            <Title>
+              <h1>
+                My name is <Span>Garin McCullick</Span>.<br />
+                <br />
+                Welcome to my portfolio!
+              </h1>
+            </Title>
+            <Span2>
+              <DoubleDown />
+            </Span2>
+          </Div>
         </About>
         <PictureContainer>
           <Pic src={process.env.PUBLIC_URL + "/profile6.jpeg"}></Pic>
