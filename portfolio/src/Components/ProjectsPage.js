@@ -97,7 +97,7 @@ const Icons = styled.div`
 const Globe = styled(FaGlobe)`
   font-size: 60px;
   :hover {
-    color: crimson;
+    color: steelblue;
     cursor: pointer;
   }
 `;
