@@ -19,6 +19,9 @@ const Container = styled.div`
   bottom: 50px;
   border-radius: 50px;
   background-color: #282c34;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const Ul = styled.ul`

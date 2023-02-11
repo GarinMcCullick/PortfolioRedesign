@@ -15,7 +15,7 @@ const InnerContainer = styled.div`
   width: 85%;
   display: flex;
   flex-flow: column wrap;
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     width: 100%;
     height: 100%;
   }
@@ -27,7 +27,7 @@ const About = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     width: 100%;
     height: 100%;
   }
@@ -57,7 +57,7 @@ const PictureContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 `;
@@ -69,7 +69,7 @@ const Pic = styled.img`
   background-repeat: no-repeat;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     height: 80%;
     width: 80%;
   }
