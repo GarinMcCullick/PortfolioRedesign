@@ -56,6 +56,9 @@ const Box = styled.div`
   border-radius: 25px;
   display: flex;
   flex-flow: row wrap;
+  @media (max-width: 1000px) {
+    border: none;
+  }
 `;
 
 const Top = styled.div`
@@ -84,6 +87,9 @@ const Li = styled.li`
   margin-left: 20%;
   display: flex;
   flex-flow: row wrap;
+  @media (max-width: 1000px) {
+    margin-left: 0%;
+  }
 `;
 
 const Span = styled.span`

@@ -46,6 +46,9 @@ const Body = styled.div`
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
+  @media (max-width: 1000px) {
+    flex-flow: row wrap;
+  }
 `;
 
 const Box = styled.div`
@@ -59,8 +62,13 @@ const Box = styled.div`
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: transparent;
   :hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  @media (max-width: 1000px) {
+    height: 50%;
+    width: 30%;
   }
 `;
 
@@ -91,22 +99,31 @@ const Icons = styled.div`
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
-  color: #282c34;
+  font-size: 60px;
+  @media (max-width: 1000px) {
+    font-size: 50px;
+  }
 `;
 
 const Globe = styled(FaGlobe)`
-  font-size: 60px;
+  color: whitesmoke;
   :hover {
     color: steelblue;
     cursor: pointer;
   }
+  @media (max-width: 1000px) {
+    color: whitesmoke;
+  }
 `;
 
 const Github = styled(FaGithub)`
-  font-size: 60px;
+  color: whitesmoke;
   :hover {
     color: crimson;
     cursor: pointer;
+  }
+  @media (max-width: 1000px) {
+    color: whitesmoke;
   }
 `;
 
