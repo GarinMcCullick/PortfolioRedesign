@@ -3,9 +3,9 @@ import AboutPage from "./Components/AboutPage";
 import ContactPage from "./Components/ContactPage";
 import LandingPage from "./Components/LandingPage";
 import Nav from "./Components/Nav";
-import ProjectsPage from "./Components/ProjectsPage";
 import SkillsPage from "./Components/SkillsPage";
 import Footer from "./Components/Footer";
+import PortfolioPage from "./Components/PortfolioPage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <LandingPage />
         <AboutPage />
         <SkillsPage />
-        <ProjectsPage />
+        <PortfolioPage />
         <ContactPage />
         <Footer />
       </header>
