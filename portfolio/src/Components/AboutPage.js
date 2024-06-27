@@ -128,7 +128,11 @@ export default function AboutPage() {
                   href={process.env.PUBLIC_URL + "/Resume.pdf"}
                   target="_blank"
                 >
-                  <ImFilePdf size={20} />
+                  <ImFilePdf
+                    color="crimson"
+                    style={{ marginRight: "0.2rem" }}
+                    size={20}
+                  />
                   Open CV
                 </A>
               </Button>

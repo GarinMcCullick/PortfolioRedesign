@@ -36,7 +36,6 @@
 section {
   min-height: 100vh;
   height:auto;
-  max-height:120vh;
   overflow: hidden;
   overflow: -moz-hidden-unscrollable;
   display: inline-block;

@@ -103,8 +103,7 @@ export default function SkillsPage() {
       text-decoration: none;
       position: relative;
       display: inline-block;
-      overflow: hidden;
-
+      overflow: visible;
       span {
         display: inline-block;
         vertical-align: middle;
