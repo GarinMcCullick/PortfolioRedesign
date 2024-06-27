@@ -22,6 +22,7 @@ const Container = styled.div`
   @media (max-width: 1000px) {
     display: none;
   }
+  z-index: 100;
 `;
 
 const Ul = styled.ul`
