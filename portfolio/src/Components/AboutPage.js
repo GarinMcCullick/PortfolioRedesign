@@ -71,7 +71,7 @@ const About = styled.div`
 const Section = styled.div`
   width: 100%;
   margin-top: 2rem;
-  line-height: 2rem;
+  line-height: 3.1rem;
   @media (max-width: 1000px) {
     line-height: 1.5rem;
   }
