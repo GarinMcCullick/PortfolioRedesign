@@ -40,7 +40,7 @@ const H3 = styled.h3`
 
 const Box = styled.div`
   color: #282c34;
-  width: 300px;
+  width: 500px;
   height: 300px;
   background-color: white;
   border-radius: 25px;
