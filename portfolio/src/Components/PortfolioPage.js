@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FaGlobe, FaGithub } from "react-icons/fa";
 
 const Container = styled.section`
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -134,19 +134,19 @@ const projects = [
     title: "Project 1",
     imageSrc: process.env.PUBLIC_URL + "/AgencyPic.png",
     liveLink: "https://example.com",
-    githubLink: "https://github.com/example/project1",
+    githubLink: "https://github.com/GarinMcCullick/NewWorldProject",
   },
   {
     title: "Project 2",
     imageSrc: process.env.PUBLIC_URL + "/Recipeazy.png",
     liveLink: "https://example.com",
-    githubLink: "https://github.com/example/project2",
+    githubLink: "https://github.com/secretFamiltRecipiesCookbook/frontEnd",
   },
   {
     title: "Project 3",
     imageSrc: process.env.PUBLIC_URL + "/DobbsCustomsPic.png",
     liveLink: "https://example.com",
-    githubLink: "https://github.com/example/project3",
+    githubLink: "https://github.com/GarinMcCullick/DobbsCustoms",
   },
   // add more projects as needed
 ];
