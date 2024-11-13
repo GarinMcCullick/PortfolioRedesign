@@ -54,13 +54,14 @@ const GridItem = styled.div`
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.7s ease;
   z-index: 1;
   height: 100%; /* Ensure each GridItem takes up full height of its row */
 
   &:hover {
     .image-overlay {
       opacity: 1;
+      border-radius: 8px;
     }
     transform: scale(1.2); /* scale GridItem on hover */
     z-index: 10; /* Higher z-index on hover */
@@ -133,19 +134,19 @@ const projects = [
   {
     title: "Project 1",
     imageSrc: process.env.PUBLIC_URL + "/AgencyPic.png",
-    liveLink: "https://example.com",
+    liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/NewWorldProject",
   },
   {
     title: "Project 2",
-    imageSrc: process.env.PUBLIC_URL + "/Recipeazy.png",
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/secretFamiltRecipiesCookbook/frontEnd",
+    imageSrc: process.env.PUBLIC_URL + "/Genesis.png",
+    liveLink: "https://genesisguild.net/",
+    githubLink: "", // No GitHub link
   },
   {
     title: "Project 3",
     imageSrc: process.env.PUBLIC_URL + "/DobbsCustomsPic.png",
-    liveLink: "https://example.com",
+    liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/DobbsCustoms",
   },
   // add more projects as needed
@@ -164,24 +165,28 @@ export default function PortfolioPage() {
             <Image src={project.imageSrc} alt={project.title} />
             <ImageOverlay className="image-overlay" />
             <IconWrapper>
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon hoverColor="#007bff">
-                  <GlobeIcon />
-                </Icon>
-              </a>
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon hoverColor="#dc3545">
-                  <GithubIcon />
-                </Icon>
-              </a>
+              {project.liveLink && (
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon hoverColor="#007bff">
+                    <GlobeIcon />
+                  </Icon>
+                </a>
+              )}
+              {project.githubLink && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon hoverColor="#dc3545">
+                    <GithubIcon />
+                  </Icon>
+                </a>
+              )}
             </IconWrapper>
           </GridItem>
         ))}

@@ -206,12 +206,12 @@ export default function ProjectsPage() {
               rel="noreferrer"
               target="_blank"
             >
-              <Pic src={process.env.PUBLIC_URL + "/Recipeazy.png"}></Pic>
+              <Pic src={process.env.PUBLIC_URL + "/Genesis.png"}></Pic>
             </A1>
-            <Label>Recipeazy</Label>
+            <Label>Genesis</Label>
             <Icons>
               <A
-                href="https://secret-recipes-gold.vercel.app/"
+                href="https://genesisguild.net/"
                 rel="noreferrer"
                 target="_blank"
               >

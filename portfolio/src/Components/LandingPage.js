@@ -52,8 +52,8 @@ const Title = styled.div`
   justify-content: center;
 
   @media (max-width: 1000px) {
-    margin:0px;
-    padding:0;
+    margin: 0px;
+    padding: 0;
   }
 `;
 
@@ -63,59 +63,66 @@ const H1 = styled.h1`
 `;
 
 const Icons = styled.span`
-display:flex;
-justify-content:space-evenly;
-width:60%;
-border-bottom:2px solid crimson;
-margin-bottom:1rem;
-font-size: 32px;
-padding-bottom:3%;
-`
-const Mail = styled(ImMail4)`
-  background-color:transparent;
-  color:white;
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+  border-bottom: 2px solid crimson;
+  margin-bottom: 1rem;
+  font-size: 32px;
+  padding-bottom: 3%;
 
-:visited {
+  @media (max-width: 1000px) {
+    padding-top: 7%;
+  }
+`;
+const Mail = styled(ImMail4)`
+  background-color: transparent;
+  color: white;
+
+  :visited {
     color: rgb(60, 60, 60);
   }
 
   :hover {
-    color: #4682B4;
-    cursor:pointer;
+    color: #4682b4;
+    cursor: pointer;
   }
-`
+`;
 
 const Linkedin = styled(ImLinkedin)`
-  background-color:transparent;
-  color:white;
+  background-color: transparent;
+  color: white;
 
   :visited {
     color: rgb(60, 60, 60);
   }
 
   :hover {
-    color: #4682B4;
-    cursor:pointer;
+    color: #4682b4;
+    cursor: pointer;
   }
-`
+`;
 
 const Github = styled(FaGithub)`
-  background-color:transparent;
-  color:white;
+  background-color: transparent;
+  color: white;
 
   :visited {
     color: rgb(60, 60, 60);
   }
 
   :hover {
-    color: #4682B4;
-    cursor:pointer;
+    color: #4682b4;
+    cursor: pointer;
   }
-`
+`;
 
 const Span = styled.span`
   color: crimson;
   border-bottom: 2px solid crimson;
+   @media (max-width: 1000px) {
+    padding-top: 7%;
+  }
 `;
 
 const PictureContainer = styled.div`
@@ -127,7 +134,7 @@ const PictureContainer = styled.div`
 
   @media (max-width: 1000px) {
     width: 100%;
-    height:40%;
+    height: 40%;
   }
 `;
 
@@ -140,10 +147,10 @@ const Pic = styled.img`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   @media (max-width: 1000px) {
-    margin-top:50%;
+    margin-top: 50%;
     height: 60%;
     width: 50%;
-    border-radius:50%;
+    border-radius: 50%;
   }
 `;
 
@@ -186,22 +193,34 @@ export default function LandingPage() {
             <Title>
               <H1>
                 <Span>Garin McCullick</Span>
-                  <br />
-                Developer & IT Consultant
+                <br />
+                Programmer & IT Consultant
               </H1>
             </Title>
             <Icons>
-              <a href="mailto: glmccullick@gmail.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="mailto: glmccullick@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Mail />
               </a>
-              <a href="https://www.linkedin.com/in/garin-mccullick-891a2320a/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/garin-mccullick-891a2320a/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Linkedin />
               </a>
-              <a href="https://github.com/GarinMcCullick" rel="noreferrer" target="_blank">
+              <a
+                href="https://github.com/GarinMcCullick"
+                rel="noreferrer"
+                target="_blank"
+              >
                 <Github />
               </a>
             </Icons>
-              <br />
+            <br />
             <Span2>
               <DoubleDown />
             </Span2>
