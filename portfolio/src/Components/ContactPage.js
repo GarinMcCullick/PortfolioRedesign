@@ -1,7 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from 'styled-components';
 import { ImPhone, ImMail4, ImLinkedin, ImArrowRight2 } from "react-icons/im";
 
+
+// Container setup
 const Container = styled.section`
   height: 100vh;
   width: 100%;
@@ -38,6 +40,15 @@ const H3 = styled.h3`
   }
 `;
 
+const backgroundAnimation = keyframes`
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: #4682B4; /* Steel blue */
+  }
+`;
+
 const Box = styled.div`
   color: #282c34;
   width: 500px;
@@ -50,6 +61,8 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
   transition: box-shadow 0.3s ease;
 
   @media (max-width: 768px) {
@@ -64,10 +77,11 @@ const Box = styled.div`
     flex-grow: 1;
   }
 
+  /* Hover effect - background color change with animation */
   :hover {
     cursor: pointer;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background-color: rgba(220, 20, 60, 0.2);
+    animation: ${backgroundAnimation} 0.5s ease forwards;
   }
 `;
 
@@ -79,7 +93,6 @@ const A = styled.a`
   justify-content: space-evenly;
   align-items: center;
   text-decoration: none;
-  text-decoration-style: none;
   color: rgb(60, 60, 60);
 
   :visited {
@@ -99,7 +112,7 @@ export default function ContactPage() {
         <H3>Feel free to reach out via channels below!</H3>
       </Title>
       <Box>
-        <A href="tel:5736808460" target="_blank">
+        <A href="tel:5736808460" target="_blank" rel="noopener noreferrer">
           <ImPhone size={64} />
           <p>573-680-8460</p>
           <p>Phone</p>
@@ -107,7 +120,7 @@ export default function ContactPage() {
         </A>
       </Box>
       <Box>
-        <A href="mailto: glmccullick@gmail.com" target="_blank">
+        <A href="mailto: glmccullick@gmail.com" target="_blank" rel="noopener noreferrer">
           <ImMail4 size={64} />
           <p>glmccullick@gmail.com</p>
           <p>Email</p>
@@ -118,6 +131,7 @@ export default function ContactPage() {
         <A
           href="https://www.linkedin.com/in/garin-mccullick-891a2320a/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <ImLinkedin size={64} />
           <p>LinkedIn</p>

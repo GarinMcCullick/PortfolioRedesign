@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { IoTrendingDownOutline } from "react-icons/io5";
+import { ImMail4, ImLinkedin } from "react-icons/im";
+import { FaGithub } from "react-icons/fa";
 
 const Container = styled.section`
   height: 100vh;
@@ -34,7 +36,7 @@ const About = styled.div`
 
   @media (max-width: 1000px) {
     width: 100%;
-    height: 100%;
+    height: 60%;
     order: 2;
   }
 `;
@@ -48,12 +50,68 @@ const Title = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1000px) {
+    margin:0px;
+    padding:0;
+  }
 `;
 
 const H1 = styled.h1`
   font-size: 32px;
   line-height: 3rem;
 `;
+
+const Icons = styled.span`
+display:flex;
+justify-content:space-evenly;
+width:60%;
+border-bottom:2px solid crimson;
+margin-bottom:1rem;
+font-size: 32px;
+padding-bottom:3%;
+`
+const Mail = styled(ImMail4)`
+  background-color:transparent;
+  color:white;
+
+:visited {
+    color: rgb(60, 60, 60);
+  }
+
+  :hover {
+    color: #4682B4;
+    cursor:pointer;
+  }
+`
+
+const Linkedin = styled(ImLinkedin)`
+  background-color:transparent;
+  color:white;
+
+  :visited {
+    color: rgb(60, 60, 60);
+  }
+
+  :hover {
+    color: #4682B4;
+    cursor:pointer;
+  }
+`
+
+const Github = styled(FaGithub)`
+  background-color:transparent;
+  color:white;
+
+  :visited {
+    color: rgb(60, 60, 60);
+  }
+
+  :hover {
+    color: #4682B4;
+    cursor:pointer;
+  }
+`
 
 const Span = styled.span`
   color: crimson;
@@ -68,7 +126,8 @@ const PictureContainer = styled.div`
   align-items: center;
 
   @media (max-width: 1000px) {
-    display: none;
+    width: 100%;
+    height:40%;
   }
 `;
 
@@ -81,7 +140,10 @@ const Pic = styled.img`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   @media (max-width: 1000px) {
-    display: none;
+    margin-top:50%;
+    height: 60%;
+    width: 50%;
+    border-radius:50%;
   }
 `;
 
@@ -123,12 +185,23 @@ export default function LandingPage() {
           <Div>
             <Title>
               <H1>
-                My name is <br />
                 <Span>Garin McCullick</Span>
-                <br />
-                Welcome to my portfolio!
+                  <br />
+                Developer & IT Consultant
               </H1>
             </Title>
+            <Icons>
+              <a href="mailto: glmccullick@gmail.com" target="_blank" rel="noopener noreferrer">
+                <Mail />
+              </a>
+              <a href="https://www.linkedin.com/in/garin-mccullick-891a2320a/" target="_blank" rel="noopener noreferrer">
+                <Linkedin />
+              </a>
+              <a href="https://github.com/GarinMcCullick" rel="noreferrer" target="_blank">
+                <Github />
+              </a>
+            </Icons>
+              <br />
             <Span2>
               <DoubleDown />
             </Span2>

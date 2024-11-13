@@ -38,6 +38,7 @@ const Li = styled.li`
   color: white;
   &:hover {
     cursor: pointer;
+    color: #4682B4;
   }
 `;
 
