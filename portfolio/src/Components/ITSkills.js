@@ -13,12 +13,24 @@ const Container = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  width: 90%;
+  width: 100%;
   height: 80%;
+`;
+
+const H3 = styled.h3`
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-size: 40px;
+  color: white; /* Ensure pure white color */
+  margin: 0;
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 const H4 = styled.h4`
   margin-top: 3%;
+  margin-bottom: 3%;
   @media (max-width: 768px) {
     font-size: 24px;
   }
@@ -30,17 +42,19 @@ const Body = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const Box = styled.div`
-  width: 40%;
-  height: 70%;
-  border: 2px solid crimson;
+  overflow: auto;
+  width: 45%;
+  height: auto;
+  max-height: 70vh;
+  border: 2px solid rgba(220, 20, 60, 0.2);
   border-radius: 25px;
   display: flex;
   flex-flow: row wrap;
-  margin: 1rem 0;
+  box-sizing: border-box;
   @media (max-width: 1000px) {
     width: 80%;
     border: none;
@@ -50,55 +64,104 @@ const Box = styled.div`
     height: auto;
     border: none;
   }
+  /* Specific scrollbar styles */
+  &::-webkit-scrollbar {
+    width: 8px; /* Set width of the vertical scrollbar */
+    height: 8px; /* Set height of the horizontal scrollbar */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      rgba(220, 20, 60, 0.2),
+      white
+    ) !important; /* Adding darkred to make the transition even smoother */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: crimson; /* Darken the thumb on hover */
+    cursor: grab;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* Make the track transparent */
+  }
 `;
 
 const Top = styled.div`
   width: 100%;
-  height: 10%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* Safari support */
+  background: rgba(220, 20, 60, 0.2); /* Crimson with transparency */
   text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+
   @media (max-width: 1000px) {
     margin-bottom: 1.5rem;
   }
+`;
+
+const Middle = styled.div`
+  width: 100%;
+  padding: 1rem;
 `;
 
 const Bottom = styled.div`
   width: 100%;
-  height: 90%;
   display: flex;
   flex-wrap: wrap;
+  padding: 1rem;
+`;
+
+const ServicesDiv = styled.div`
+  margin-bottom: 5rem;
 `;
 
 const Ul = styled.ul`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
   @media (max-width: 768px) {
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 `;
 
 const Li = styled.li`
-  margin-left: 20%;
   display: flex;
   align-items: center;
-  @media (max-width: 1000px) {
-    margin-left: 0;
-    margin-bottom: 1.5rem;
-  }
+  margin-left: 0;
 `;
 
 const Span = styled.span`
   margin-left: 1rem;
+
+  p {
+    filter: inherit; /* Allow blur to apply to P within Span */
+  }
 `;
 
 const P = styled.p`
   font-size: 18px;
-  color: crimson;
+  color: crimson; /* Default color */
   letter-spacing: 0.15rem;
   margin-top: 0.5rem;
+
+  /* Apply blur and gradient effect */
+  background: linear-gradient(90deg, crimson, #ff7f7f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(2px); /* Apply blur */
+  transition: filter 0.3s ease-in-out;
+
   @media (max-width: 1000px) {
     font-size: 12px;
   }
@@ -111,23 +174,85 @@ export default function ITPage() {
         <Body>
           <Box>
             <Top>
-              <H4>Services</H4>
+              <H3>Services</H3>
             </Top>
-            <Bottom>
+            <Middle>
+              <ServicesDiv>
+                <H4>Microsoft</H4>
+                <Ul>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Entra ID<P>Advanced</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      365 Admin Center<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Intune<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Windows Admin Center<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                </Ul>
+              </ServicesDiv>
+              <H4>Google</H4>
               <Ul>
                 <Li>
                   <GoVerified />
                   <Span>
-                    Powerschool
-                    <P>Intermediate</P>
+                    Admin console<P>Advanced</P>
                   </Span>
                 </Li>
                 <Li>
                   <GoVerified />
                   <Span>
-                    Google Admin<P>Advanced</P>
+                    Cloud Identity<P>Intermediate</P>
                   </Span>
                 </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Cloud IAM<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Security Center<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Endpoint Management<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Vault<P>Intermediate</P>
+                  </Span>
+                </Li>
+              </Ul>
+              <Ul>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Powerschool<P>Intermediate</P>
+                  </Span>
+                </Li>
+
                 <Li>
                   <GoVerified />
                   <Span>
@@ -149,11 +274,11 @@ export default function ITPage() {
                   </Span>
                 </Li>
               </Ul>
-            </Bottom>
+            </Middle>
           </Box>
           <Box>
             <Top>
-              <H4>Networking</H4>
+              <H3>Networking</H3>
             </Top>
             <Bottom>
               <Ul>
@@ -186,7 +311,19 @@ export default function ITPage() {
                 <Li>
                   <GoVerified />
                   <Span>
-                    Hardware<P>APs - NICs...</P>
+                    Hardware<P>APs, NICs, Switches, DNS, Servers...</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Active Directory<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    Adtran<P>Intermediate</P>
                   </Span>
                 </Li>
               </Ul>

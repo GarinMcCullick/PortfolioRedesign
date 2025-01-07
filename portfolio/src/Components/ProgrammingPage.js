@@ -19,6 +19,7 @@ const InnerContainer = styled.div`
 
 const H4 = styled.h4`
   margin-top: 3%;
+  margin-bottom: 1rem;
   @media (max-width: 768px) {
     font-size: 24px;
   }
@@ -30,17 +31,19 @@ const Body = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const Box = styled.div`
-  width: 40%;
-  height: 70%;
-  border: 2px solid crimson;
+  overflow: auto;
+  width: 45%;
+  height: auto;
+  max-height: 70vh;
+  border: 2px solid rgba(220, 20, 60, 0.2);
   border-radius: 25px;
   display: flex;
-  flex-flow: row wrap;
-  margin: 1rem 0;
+  flex-flow: column wrap;
+  box-sizing: border-box;
   @media (max-width: 1000px) {
     width: 80%;
     border: none;
@@ -54,11 +57,15 @@ const Box = styled.div`
 
 const Top = styled.div`
   width: 100%;
-  height: 10%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* Safari support */
+  background: rgba(220, 20, 60, 0.2); /* Crimson with transparency */
   text-align: center;
-  @media (max-width: 1000px) {
-    margin-bottom: 1.5rem;
-  }
+  padding: 1rem 0;
+  margin-bottom: 1rem;
 `;
 
 const Bottom = styled.div`
@@ -66,28 +73,31 @@ const Bottom = styled.div`
   height: 90%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
 `;
 
 const Ul = styled.ul`
-  width: 50%;
+  width: 45%;
   height: 100%;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-evenly;
   align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
   @media (max-width: 768px) {
     width: 100%;
   }
 `;
 
 const Li = styled.li`
-  margin-left: 20%;
+  margin-left: 0;
   display: flex;
   align-items: center;
-  @media (max-width: 1000px) {
-    margin-left: 0;
-    margin-bottom: 1.5rem;
-  }
+  margin-bottom: 1.5rem;
 `;
 
 const Span = styled.span`
