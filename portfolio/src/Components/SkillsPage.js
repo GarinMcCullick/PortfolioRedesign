@@ -51,15 +51,6 @@ export default function SkillsPage() {
     }
   `;
 
-  const fadeInOut = keyframes`
-    0% {
-      background-size: 0% 2px;
-    }
-    100% {
-      background-size: 100% 2px;
-    }
-  `;
-
   const Switch = styled.div`
     margin-top: 2rem;
     display: flex;
@@ -89,10 +80,16 @@ export default function SkillsPage() {
     cursor: pointer;
     background-color: ${(props) => (props.active ? "crimson" : "white")};
     color: ${(props) => (props.active ? "white" : "crimson")};
-    border-radius: ${(props) =>
-      props.left ? "25px 0 0 25px" : "0 25px 25px 0"};
     position: relative;
     z-index: 2;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* Slanted middle using clip-path */
+    clip-path: ${(props) =>
+      props.left
+        ? "polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%)"
+        : "polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0% 50%)"};
 
     @media (max-width: 768px) {
       font-size: 24px;
@@ -103,33 +100,59 @@ export default function SkillsPage() {
       text-decoration: none;
       position: relative;
       display: inline-block;
-      overflow: visible;
+      z-index: 2;
+
       span {
         display: inline-block;
         vertical-align: middle;
       }
 
       .letter {
-        animation: ${bounce} 2s ease infinite;
+        animation: ${(props) => (props.active ? bounce : "none")} 2s ease
+          infinite;
       }
 
+      /* Default underline */
       &:after {
         content: "";
         position: absolute;
-        left: 0;
+        left: 50%;
         bottom: -2px;
-        width: 100%;
+        width: 0%;
         height: 2px;
         background-color: crimson;
-        background-size: 0% 2px; /* Initially no underline */
-        background-repeat: no-repeat;
-        animation: ${fadeInOut} 2s linear infinite; /* Animation duration */
-        transition: background-size 0.3s ease; /* Smooth transition */
+        transition: width 0.3s ease-in-out, left 0.3s ease-in-out,
+          background-color 0.3s ease-in-out;
       }
     }
 
-    p.active:after {
-      background-size: 100% 2px; /* Full underline when active */
+    /* Hover effect for background expansion */
+    &.not-active::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4682b4;
+      transform: scaleX(0);
+      transform-origin: ${(props) => (props.left ? "right" : "left")};
+      transition: transform 0.3s ease-in-out;
+      z-index: 1;
+    }
+
+    &.not-active:hover::before {
+      transform: scaleX(1);
+    }
+
+    &.not-active:hover {
+      color: white;
+    }
+
+    /* Change underline to blue on hover & expand outward */
+    &.not-active:hover p:after {
+      width: 100%;
+      left: 0;
+      background-color: #4682b4; /* Change underline to blue */
     }
   `;
 
@@ -144,6 +167,7 @@ export default function SkillsPage() {
           onClick={() => setShowProgramming(true)}
           active={showProgramming}
           left
+          className={showProgramming ? "active" : "not-active"}
         >
           <p className={showProgramming ? "active" : ""}>
             {showProgramming ? (
@@ -162,6 +186,7 @@ export default function SkillsPage() {
         <SwitchButton
           onClick={() => setShowProgramming(false)}
           active={!showProgramming}
+          className={!showProgramming ? "active" : "not-active"}
         >
           <p className={!showProgramming ? "active" : ""}>
             {!showProgramming ? (

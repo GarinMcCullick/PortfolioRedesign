@@ -29,6 +29,7 @@ const H3 = styled.h3`
 `;
 
 const H4 = styled.h4`
+  border-bottom: 1px solid white;
   margin-top: 3%;
   margin-bottom: 3%;
   @media (max-width: 768px) {
@@ -195,6 +196,12 @@ export default function ITPage() {
                   <Li>
                     <GoVerified />
                     <Span>
+                      Copilot<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
                       Intune<P>Intermediate</P>
                     </Span>
                   </Li>
@@ -206,74 +213,84 @@ export default function ITPage() {
                   </Li>
                 </Ul>
               </ServicesDiv>
-              <H4>Google</H4>
-              <Ul>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Admin console<P>Advanced</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Cloud Identity<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Cloud IAM<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Security Center<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Endpoint Management<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Vault<P>Intermediate</P>
-                  </Span>
-                </Li>
-              </Ul>
-              <Ul>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Powerschool<P>Intermediate</P>
-                  </Span>
-                </Li>
-
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    SpiceWorks<P>Intermediate</P>
-                  </Span>
-                </Li>
-              </Ul>
-              <Ul>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Canvas<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Clever<P>Intermediate</P>
-                  </Span>
-                </Li>
-              </Ul>
+              <ServicesDiv>
+                <H4>Google</H4>
+                <Ul>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Admin console<P>Advanced</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Cloud Identity<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Cloud IAM<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Security Center<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Endpoint Management<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Vault<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                </Ul>
+              </ServicesDiv>
+              <ServicesDiv>
+                <H4>Other Services</H4>
+                <Ul>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Powerschool<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      SpiceWorks<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                </Ul>
+                <Ul>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Canvas<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Clever<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Jenzabar<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                </Ul>
+              </ServicesDiv>
             </Middle>
           </Box>
           <Box>
@@ -281,52 +298,46 @@ export default function ITPage() {
               <H3>Networking</H3>
             </Top>
             <Bottom>
-              <Ul>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Protocols <P>TCP/IP - DHCP</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    IDRAC<P>basic</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Avaya IP Management<P>Intermediate</P>
-                  </Span>
-                </Li>
-              </Ul>
-              <Ul>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Brands<P>Cisco - Meraki</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Hardware<P>APs, NICs, Switches, DNS, Servers...</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Active Directory<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified />
-                  <Span>
-                    Adtran<P>Intermediate</P>
-                  </Span>
-                </Li>
-              </Ul>
+              <ServicesDiv>
+                <Ul>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Protocols <P>TCP/IP - DHCP</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Avaya IP Management<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Brands<P>Cisco, Dell, NetGear...</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Hardware<P>APs, NICs, Switches, DNS, Servers...</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Active Directory<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                  <Li>
+                    <GoVerified />
+                    <Span>
+                      Adtran<P>Intermediate</P>
+                    </Span>
+                  </Li>
+                </Ul>
+              </ServicesDiv>
             </Bottom>
           </Box>
         </Body>

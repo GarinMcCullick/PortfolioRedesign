@@ -4,6 +4,25 @@ import { IoTrendingDownOutline } from "react-icons/io5";
 import { ImMail4, ImLinkedin } from "react-icons/im";
 import { FaGithub } from "react-icons/fa";
 
+// Smooth oval morphing animation
+const moveAnimation = keyframes`
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, 15px);
+  }
+  50% {
+    transform: translate(-9px, -20px);
+  }
+  75% {
+    transform: translate(20px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+`;
+
 const Container = styled.section`
   height: 100vh;
   width: 100%;
@@ -75,6 +94,7 @@ const Icons = styled.span`
     padding-top: 7%;
   }
 `;
+
 const Mail = styled(ImMail4)`
   background-color: transparent;
   color: white;
@@ -120,7 +140,7 @@ const Github = styled(FaGithub)`
 const Span = styled.span`
   color: crimson;
   border-bottom: 2px solid crimson;
-   @media (max-width: 1000px) {
+  @media (max-width: 1000px) {
     padding-top: 7%;
   }
 `;
@@ -143,8 +163,9 @@ const Pic = styled.img`
   width: 60%;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.19),
+    inset 0 6px 6px rgba(0, 0, 0, 0.23);
+  animation: ${moveAnimation} 12s ease-in-out infinite;
 
   @media (max-width: 1000px) {
     margin-top: 50%;

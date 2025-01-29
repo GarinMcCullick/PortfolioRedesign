@@ -161,7 +161,7 @@ export default function ProgrammingPage() {
                 <Li>
                   <GoVerified />
                   <Span>
-                    JavaScript<P>Intermediate</P>
+                    JavaScript<P>Advanced</P>
                   </Span>
                 </Li>
               </Ul>
@@ -188,7 +188,13 @@ export default function ProgrammingPage() {
                 <Li>
                   <GoVerified />
                   <Span>
-                    mySQL<P>Intermediate</P>
+                    Python<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    mySQL<P>Advanced</P>
                   </Span>
                 </Li>
               </Ul>
@@ -209,6 +215,12 @@ export default function ProgrammingPage() {
                   <GoVerified />
                   <Span>
                     Laravel 8<P>Advanced</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified />
+                  <Span>
+                    SQL Server Management<P>Intermediate</P>
                   </Span>
                 </Li>
               </Ul>
