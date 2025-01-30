@@ -1,6 +1,24 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ImFilePdf } from "react-icons/im";
+
+const moveAnimation = keyframes`
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, 25px);
+  }
+  50% {
+    transform: translate(1px, -20px);
+  }
+  75% {
+    transform: translate(20px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+`;
 
 const Container = styled.section`
   height: 100vh;
@@ -73,6 +91,9 @@ const PicContainer = styled.div`
 const Pic = styled.img`
   width: 100%;
   border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  inset 0 6px 6px rgba(0, 0, 0, 0.23);
+  animation: ${moveAnimation} 12s ease-in-out infinite;
 `;
 
 const About = styled.div`
