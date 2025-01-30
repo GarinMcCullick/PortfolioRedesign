@@ -163,8 +163,9 @@ const Pic = styled.img`
   width: 60%;
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.19),
-    inset 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  inset 0 6px 6px rgba(0, 0, 0, 0.23);
   animation: ${moveAnimation} 12s ease-in-out infinite;
 
   @media (max-width: 1000px) {

@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  width: 90%;
+  width: 100%;
   height: 80%;
 `;
 
@@ -52,6 +52,29 @@ const Box = styled.div`
     width: 50%;
     height: auto;
     border: none;
+  }
+  /* Specific scrollbar styles */
+  &::-webkit-scrollbar {
+    width: 8px; /* Set width of the vertical scrollbar */
+    height: 8px; /* Set height of the horizontal scrollbar */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      rgba(220, 20, 60, 0.2),
+      white
+    ) !important; /* Adding darkred to make the transition even smoother */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: crimson; /* Darken the thumb on hover */
+    cursor: grab;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* Make the track transparent */
   }
 `;
 
@@ -126,20 +149,20 @@ export default function ProgrammingPage() {
             <Bottom>
               <Ul>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     HTML
                     <P>Advanced</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     CSS<P>Advanced</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     React<P>Intermediate</P>
                   </Span>
@@ -147,19 +170,19 @@ export default function ProgrammingPage() {
               </Ul>
               <Ul>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     Wordpress<P>Intermediate</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     Git<P>Intermediate</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     JavaScript<P>Advanced</P>
                   </Span>
@@ -174,25 +197,25 @@ export default function ProgrammingPage() {
             <Bottom>
               <Ul>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     PHP<P>Advanced</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     Java<P>Intermediate</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     Python<P>Intermediate</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     mySQL<P>Advanced</P>
                   </Span>
@@ -200,25 +223,25 @@ export default function ProgrammingPage() {
               </Ul>
               <Ul>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     MongoDB<P>Basic</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     Express JS<P>Basic</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     Laravel 8<P>Advanced</P>
                   </Span>
                 </Li>
                 <Li>
-                  <GoVerified />
+                  <GoVerified size="1.2em" />
                   <Span>
                     SQL Server Management<P>Intermediate</P>
                   </Span>

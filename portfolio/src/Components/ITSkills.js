@@ -182,31 +182,31 @@ export default function ITPage() {
                 <H4>Microsoft</H4>
                 <Ul>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Entra ID<P>Advanced</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       365 Admin Center<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Copilot<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Intune<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Windows Admin Center<P>Intermediate</P>
                     </Span>
@@ -217,37 +217,37 @@ export default function ITPage() {
                 <H4>Google</H4>
                 <Ul>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Admin console<P>Advanced</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Cloud Identity<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Cloud IAM<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Security Center<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Endpoint Management<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Vault<P>Intermediate</P>
                     </Span>
@@ -258,13 +258,13 @@ export default function ITPage() {
                 <H4>Other Services</H4>
                 <Ul>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Powerschool<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       SpiceWorks<P>Intermediate</P>
                     </Span>
@@ -272,19 +272,19 @@ export default function ITPage() {
                 </Ul>
                 <Ul>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Canvas<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Clever<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Jenzabar<P>Intermediate</P>
                     </Span>
@@ -301,37 +301,37 @@ export default function ITPage() {
               <ServicesDiv>
                 <Ul>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Protocols <P>TCP/IP - DHCP</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Avaya IP Management<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Brands<P>Cisco, Dell, NetGear...</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Hardware<P>APs, NICs, Switches, DNS, Servers...</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Active Directory<P>Intermediate</P>
                     </Span>
                   </Li>
                   <Li>
-                    <GoVerified />
+                    <GoVerified size="1.2em" />
                     <Span>
                       Adtran<P>Intermediate</P>
                     </Span>
