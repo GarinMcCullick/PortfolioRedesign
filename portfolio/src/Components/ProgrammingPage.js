@@ -42,7 +42,7 @@ const Box = styled.div`
   border: 2px solid rgba(220, 20, 60, 0.2);
   border-radius: 25px;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   box-sizing: border-box;
   @media (max-width: 1000px) {
     width: 80%;
