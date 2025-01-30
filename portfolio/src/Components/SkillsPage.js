@@ -13,6 +13,9 @@ export default function SkillsPage() {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1000px) {
+      height: auto;
+    }
   `;
 
   const Title = styled.div`

@@ -95,6 +95,9 @@ section {
     width: 250px !important;
     height: 450px !important;
   }
+  .App-header {
+    height: auto;
+  }
 }
 
 @media (max-width: 480px) {

@@ -10,6 +10,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: -2rem;
+  @media (max-width: 1000px) {
+    height: auto;
+    margin-top: 4rem;
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -48,7 +52,8 @@ const Box = styled.div`
     width: 80%;
     border: none;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
+    max-height: none;
     width: 50%;
     height: auto;
     border: none;

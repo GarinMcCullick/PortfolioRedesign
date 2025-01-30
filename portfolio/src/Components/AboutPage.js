@@ -11,6 +11,9 @@ const Container = styled.section`
   color: #fff; /* Light text */
   padding-top: 2rem;
   overflow: hidden; /* Prevents overflow */
+  @media (max-width: 1000px) {
+    height: auto;
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -47,6 +50,9 @@ const Body = styled.div`
   width: 100%;
   height: calc(100vh - 150px); /* Adjust height to fit within 100vh */
   overflow: hidden;
+  @media (max-width: 1000px) {
+    height: auto;
+  }
 `;
 
 const PicContainer = styled.div`
@@ -79,6 +85,7 @@ const About = styled.div`
   max-height: 100vh;
   @media (max-width: 1000px) {
     padding-right: 0;
+    max-height: none;
   }
 `;
 
