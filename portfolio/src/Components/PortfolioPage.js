@@ -5,7 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import Swiper styles
 import "swiper/css/pagination"; // Import Swiper pagination styles
 import "swiper/css/navigation"; // Import Swiper navigation styles
-import { Pagination, Navigation } from "swiper/modules"; // Import Swiper modules
+import "swiper/css/autoplay"; // Import Swiper autoplay styles
+import { Pagination, Navigation, Autoplay } from "swiper/modules"; // Import Swiper modules
 
 // Global styles for Swiper navigation buttons and pagination dots
 const GlobalStyle = createGlobalStyle`
@@ -68,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-// Styled components
+// Styled components (unchanged)
 const Container = styled.section`
   width: 100%;
   max-width: 1800px; /* Limit max width */
@@ -148,9 +149,7 @@ const GridItem = styled.div`
   margin: 15px; /* Add margin between items */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* Hide overflow for rounded corners */
-  &:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-  }
+
   @media (max-width: 768px) {
     height: 250px; /* Adjust height for mobile */
     margin: 10px; /* Reduce margin for mobile */
@@ -164,6 +163,9 @@ const Image = styled.img`
   border-radius: 8px;
   transition: transform 0.3s ease;
   transform: scale(1); /* Initial scale */
+  &:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
 `;
 
 const ImageOverlay = styled.div`
@@ -263,25 +265,28 @@ export default function PortfolioPage() {
         <SwiperWrapper>
           <Swiper
             spaceBetween={20} // Space between slides
-            slidesPerView={2} // Display 3 slides at once
+            slidesPerView={2} // Display 2 slides at once
             loop={true} // Enable looping
-            modules={[Pagination, Navigation]} // Add Pagination and Navigation modules
+            modules={[Pagination, Navigation, Autoplay]} // Add Pagination, Navigation, and Autoplay modules
             effect="slide" // Optional, for smoother sliding effect
             direction="horizontal" // Default direction (for desktop)
             navigation={{
               nextEl: ".swiper-button-next", // Custom navigation next button
               prevEl: ".swiper-button-prev", // Custom navigation prev button
             }}
+            autoplay={{
+              delay: 3000, // Delay between slides in milliseconds (3 seconds)
+              disableOnInteraction: true, // Continue autoplay after user interaction
+            }}
             breakpoints={{
               1024: {
-                slidesPerView: 3,
-                direction: "horizontal", // Horizontal on desktop
+                slidesPerView: 3, // Show 3 slides on desktop
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 2, // Show 2 slides on tablets
               },
               480: {
-                slidesPerView: 1,
+                slidesPerView: 1, // Show 1 slide on mobile
               },
             }}
           >
