@@ -248,6 +248,12 @@ export default function ProgrammingPage() {
                 <Li>
                   <GoVerified size="1.2em" />
                   <Span>
+                    Powershell<P>Intermediate</P>
+                  </Span>
+                </Li>
+                <Li>
+                  <GoVerified size="1.2em" />
+                  <Span>
                     SQL Server Management<P>Intermediate</P>
                   </Span>
                 </Li>
