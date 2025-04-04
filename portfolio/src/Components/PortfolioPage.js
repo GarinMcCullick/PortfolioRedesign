@@ -245,12 +245,6 @@ const projects = [
     liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/DobbsCustoms",
   },
-  {
-    title: "Project 4",
-    imageSrc: process.env.PUBLIC_URL + "/AgencyPic.png",
-    liveLink: "",
-    githubLink: "https://github.com/GarinMcCullick/NewWorldProject",
-  },
 ];
 
 export default function PortfolioPage() {
