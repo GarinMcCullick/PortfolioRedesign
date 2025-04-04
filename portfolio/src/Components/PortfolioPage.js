@@ -56,7 +56,11 @@ const GlobalStyle = createGlobalStyle`
     opacity: 1; /* Fully visible */
     transform: scale(1.2); /* Slightly larger */
   }
-
+  @media (min-width: 769px){
+    .swiper-button-next, .swiper-button-prev {
+      display: none; /* Show navigation buttons on desktop */
+      }
+    }
   @media (max-width: 768px) {
     .swiper-button-next, .swiper-button-prev {
       display: none; /* Hide navigation buttons on mobile */
