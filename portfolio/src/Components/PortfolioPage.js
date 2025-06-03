@@ -279,18 +279,6 @@ const projects = [
 ];
 
 export default function PortfolioPage() {
-  const swiperRef = useRef(null);
-  useEffect(() => {
-    const swiper = swiperRef.current;
-
-    if (swiper && swiper.autoplay) {
-      // Small timeout to let Swiper stabilize
-      setTimeout(() => {
-        swiper.slideToLoop(0, 0); // Resets to first real slide instantly
-        swiper.autoplay.start(); // Start autoplay after stabilization
-      }, 100); // slight delay to allow DOM render
-    }
-  }, []);
   return (
     <>
       <GlobalStyle />
@@ -300,12 +288,8 @@ export default function PortfolioPage() {
           <H3>Most recent work</H3>
         </Title>
         <SwiperContainer>
-          <SwiperWrapper
-            onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
-            onMouseLeave={() => swiperRef.current?.autoplay?.start()}
-          >
+          <SwiperWrapper>
             <Swiper
-              onSwiper={(swiper) => (swiperRef.current = swiper)}
               spaceBetween={20}
               slidesPerView={2}
               loop={true}
@@ -317,12 +301,11 @@ export default function PortfolioPage() {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
               }}
-              freeMode={true}
               speed={9000}
               autoplay={{
                 delay: 2000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
+                disableOnInteraction: true,
+                pauseOnMouseEnter: false,
               }}
               touchRatio={1}
               threshold={20}
