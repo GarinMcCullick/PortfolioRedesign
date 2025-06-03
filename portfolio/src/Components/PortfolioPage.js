@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { FaGlobe, FaGithub } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
