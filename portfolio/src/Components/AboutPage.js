@@ -127,7 +127,7 @@ const Section = styled.div`
     flex-basis: 100%;
     font-size: 1.35rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: 1000px) {
