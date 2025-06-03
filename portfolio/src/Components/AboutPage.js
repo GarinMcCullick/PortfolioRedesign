@@ -117,7 +117,7 @@ const Section = styled.div`
   flex-wrap: row wrap;
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: crimson;
     margin-bottom: 0.5rem;
     flex-basis: 100%;
@@ -125,13 +125,21 @@ const Section = styled.div`
 
   p {
     flex-basis: 100%;
-    font-size: 1rem;
+    font-size: 1.35rem;
+    line-height: 1.5;
     margin-bottom: 1rem;
   }
 
   @media (max-width: 1000px) {
     flex-direction: column;
     text-align: left;
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      flex-basis: 100%;
+      font-size: 1.2rem;
+    }
   }
 `;
 
