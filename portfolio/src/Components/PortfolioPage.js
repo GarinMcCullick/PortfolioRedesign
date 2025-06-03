@@ -256,9 +256,12 @@ const DescriptionOverlay = styled.div`
   width: 100%;
   background-color: white;
   color: black;
-  padding: 10px;
+  padding: 1rem;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
   transform: translateY(100%);
   transition: transform 0.4s ease;
   z-index: 3;
@@ -268,7 +271,18 @@ const DescriptionOverlay = styled.div`
   }
 
   @media (max-width: 768px) {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+`;
+
+const DP = styled.p`
+  margin: 0.5rem;
+  @media (max-width: 768px) {
+    margin: 0;
+    padding: 0;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
   }
 `;
 
@@ -283,16 +297,16 @@ const projects = [
   },
   {
     title: "Dobbs Custom",
-    imageSrc: process.env.PUBLIC_URL + "/dobbs.png",
-    liveLink: "https://dobbs-customs.web.app",
+    imageSrc: process.env.PUBLIC_URL + "/DobbsCustomsPic.png",
+    liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/DobbsCustom",
     description:
       "A simple storefront built with basic HTML and CSS for showcasing custom products.",
   },
   {
     title: "Genesis",
-    imageSrc: process.env.PUBLIC_URL + "/genesisscreenshot.png",
-    liveLink: "https://genesis-rust.com",
+    imageSrc: process.env.PUBLIC_URL + "/Genesis.png",
+    liveLink: "https://genesisguild.net",
     githubLink: "",
     description:
       "A WordPress-based gaming site with custom PHP, Discord OAuth, role sync, and database integration.",
@@ -330,9 +344,9 @@ export default function PortfolioPage() {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
               }}
-              speed={9000}
+              speed={8000}
               autoplay={{
-                delay: 2000,
+                delay: 1,
                 disableOnInteraction: true,
                 pauseOnMouseEnter: false,
               }}
@@ -352,7 +366,7 @@ export default function PortfolioPage() {
                     <Image src={project.imageSrc} alt={project.title} />
                     <ImageOverlay />
                     <DescriptionOverlay>
-                      {project.description}
+                      <DP>{project.description}</DP>
                     </DescriptionOverlay>
                     <IconWrapper>
                       {project.liveLink && (
