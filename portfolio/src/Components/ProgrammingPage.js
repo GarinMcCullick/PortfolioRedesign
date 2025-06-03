@@ -9,256 +9,172 @@ const Container = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  margin-top: -2rem;
+  padding: 2rem;
+  background: transparent;
+  color: white;
+
   @media (max-width: 1000px) {
     height: auto;
-    margin-top: 4rem;
+    padding-top: 5rem;
   }
 `;
 
 const InnerContainer = styled.div`
   width: 100%;
-  height: 80%;
-`;
-
-const H4 = styled.h4`
-  margin-top: 3%;
-  margin-bottom: 1rem;
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
+  max-width: 1600px;
 `;
 
 const Body = styled.div`
   width: 100%;
-  height: 80%;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items: flex-start;
+  gap: 2rem;
 `;
 
 const Box = styled.div`
+  flex: 1 1 45%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.1);
+  backdrop-filter: blur(10px);
   overflow: auto;
-  width: 45%;
-  height: auto;
   max-height: 70vh;
-  border: 2px solid rgba(220, 20, 60, 0.2);
-  border-radius: 25px;
-  display: flex;
-  flex-flow: row wrap;
-  box-sizing: border-box;
+  padding: 1.5rem;
+
   @media (max-width: 1000px) {
-    width: 80%;
-    border: none;
-  }
-  @media (max-width: 1000px) {
+    flex: 1 1 90%;
     max-height: none;
-    width: 50%;
-    height: auto;
-    border: none;
   }
-  /* Specific scrollbar styles */
+
   &::-webkit-scrollbar {
-    width: 8px; /* Set width of the vertical scrollbar */
-    height: 8px; /* Set height of the horizontal scrollbar */
+    width: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-      to bottom,
-      rgba(220, 20, 60, 0.2),
-      white
-    ) !important; /* Adding darkred to make the transition even smoother */
-    border-radius: 10px; /* Rounded corners */
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: crimson; /* Darken the thumb on hover */
-    cursor: grab;
+    background: linear-gradient(to bottom, crimson, #ff7f7f);
+    border-radius: 8px;
   }
 
   &::-webkit-scrollbar-track {
-    background: transparent; /* Make the track transparent */
+    background: transparent;
   }
 `;
 
 const Top = styled.div`
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); /* Safari support */
-  background: rgba(220, 20, 60, 0.2); /* Crimson with transparency */
   text-align: center;
-  padding: 1rem 0;
-  margin-bottom: 1rem;
-`;
-
-const Bottom = styled.div`
-  width: 100%;
-  height: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
-`;
-
-const Ul = styled.ul`
-  width: 45%;
-  height: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-const Li = styled.li`
-  margin-left: 0;
-  display: flex;
-  align-items: center;
   margin-bottom: 1.5rem;
 `;
 
+const H3 = styled.h3`
+  font-size: 2rem;
+  margin: 0;
+  color: white;
+  border-bottom: 1px solid crimson;
+  padding-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const Ul = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+`;
+
+const Li = styled.li`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+`;
+
 const Span = styled.span`
-  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const P = styled.p`
-  font-size: 18px;
+  font-size: 1.15rem;
   color: crimson;
-  letter-spacing: 0.15rem;
-  margin-top: 0.5rem;
-  @media (max-width: 1000px) {
-    font-size: 12px;
+  margin: 0.2rem 0 0 0;
+  background: linear-gradient(90deg, crimson, #ff7f7f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.08rem;
+  transition: filter 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
   }
 `;
+
+// Skill arrays
+const frontendSkills = [
+  ["HTML", "Advanced"],
+  ["CSS", "Advanced"],
+  ["React", "Intermediate"],
+  ["Wordpress", "Intermediate"],
+  ["Git", "Intermediate"],
+  ["JavaScript", "Advanced"],
+];
+
+const backendSkills = [
+  ["PHP", "Advanced"],
+  ["Java", "Intermediate"],
+  ["Python", "Intermediate"],
+  ["mySQL", "Advanced"],
+  ["MongoDB", "Basic"],
+  ["Express JS", "Basic"],
+  ["Laravel 8", "Advanced"],
+  ["Powershell", "Intermediate"],
+  ["SQL Server Management", "Intermediate"],
+];
 
 export default function ProgrammingPage() {
   return (
     <Container>
       <InnerContainer>
         <Body>
+          {/* Frontend Box */}
           <Box>
             <Top>
-              <H4>Frontend</H4>
+              <H3>Frontend</H3>
             </Top>
-            <Bottom>
-              <Ul>
-                <Li>
-                  <GoVerified size="1.2em" />
+            <Ul>
+              {frontendSkills.map(([skill, level]) => (
+                <Li key={skill}>
+                  <GoVerified size="1.2em" color="crimson" />
                   <Span>
-                    HTML
-                    <P>Advanced</P>
+                    {skill}
+                    <P>{level}</P>
                   </Span>
                 </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    CSS<P>Advanced</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    React<P>Intermediate</P>
-                  </Span>
-                </Li>
-              </Ul>
-              <Ul>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    Wordpress<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    Git<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    JavaScript<P>Advanced</P>
-                  </Span>
-                </Li>
-              </Ul>
-            </Bottom>
+              ))}
+            </Ul>
           </Box>
+
+          {/* Backend Box */}
           <Box>
             <Top>
-              <H4>Backend</H4>
+              <H3>Backend</H3>
             </Top>
-            <Bottom>
-              <Ul>
-                <Li>
-                  <GoVerified size="1.2em" />
+            <Ul>
+              {backendSkills.map(([skill, level]) => (
+                <Li key={skill}>
+                  <GoVerified size="1.2em" color="crimson" />
                   <Span>
-                    PHP<P>Advanced</P>
+                    {skill}
+                    <P>{level}</P>
                   </Span>
                 </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    Java<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    Python<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    mySQL<P>Advanced</P>
-                  </Span>
-                </Li>
-              </Ul>
-              <Ul>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    MongoDB<P>Basic</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    Express JS<P>Basic</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    Laravel 8<P>Advanced</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    Powershell<P>Intermediate</P>
-                  </Span>
-                </Li>
-                <Li>
-                  <GoVerified size="1.2em" />
-                  <Span>
-                    SQL Server Management<P>Intermediate</P>
-                  </Span>
-                </Li>
-              </Ul>
-            </Bottom>
+              ))}
+            </Ul>
           </Box>
         </Body>
       </InnerContainer>

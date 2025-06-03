@@ -17,7 +17,6 @@ function App() {
         <SkillsPage />
         <PortfolioPage />
         <ContactPage />
-        <Footer />
       </header>
     </div>
   );

@@ -22,7 +22,6 @@ const glowAnimation = keyframes`
   }
 `;
 
-// Container setup
 const Container = styled.section`
   height: 100vh;
   width: 100%;
@@ -31,6 +30,24 @@ const Container = styled.section`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  position: relative;
+  margin: 0;
+  background: transparent;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 50vw solid transparent; /* half viewport width */
+    border-right: 50vw solid transparent; /* half viewport width */
+    border-bottom: 20px solid rgba(220, 20, 60, 0.8); /* crimson triangle pointing up */
+
+    filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.8));
+  }
 `;
 
 const Title = styled.div`
@@ -62,44 +79,7 @@ const H3 = styled.h3`
   }
 `;
 
-// Diamond-shaped box with responsive sizing
-const Box = styled.div`
-  width: 300px;
-  height: 300px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  overflow: hidden;
-  margin-bottom: 10%;
-  &:hover {
-    animation: ${backgroundAnimation} 0.5s ease forwards,
-      ${glowAnimation} 0.5s ease forwards;
-    transform: rotate(45deg) scale(1.1);
-  }
-
-  @media (max-width: 1024px) {
-    width: 200px;
-    height: 200px;
-  }
-
-  @media (max-width: 768px) {
-    width: 180px;
-    height: 180px;
-  }
-
-  @media (max-width: 480px) {
-    width: 150px;
-    height: 150px;
-  }
-`;
-
-// Inner content rotated back to normal, ensuring link is clickable
+// *** FIRST declare InnerContent so you can reference it inside Box ***
 const InnerContent = styled.a`
   width: 100%;
   height: 100%;
@@ -115,6 +95,7 @@ const InnerContent = styled.a`
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
+  transition: transform 0.3s ease;
 
   &:visited {
     color: rgb(60, 60, 60);
@@ -130,6 +111,47 @@ const InnerContent = styled.a`
 
   @media (max-width: 480px) {
     font-size: 14px;
+  }
+`;
+
+const Box = styled.div`
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 10%;
+
+  &:hover {
+    animation: ${backgroundAnimation} 0.5s ease forwards,
+      ${glowAnimation} 0.5s ease forwards;
+    transform: rotate(0deg) scale(1.1);
+  }
+
+  &:hover ${InnerContent} {
+    transform: rotate(0deg);
+  }
+
+  @media (max-width: 1024px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (max-width: 768px) {
+    width: 180px;
+    height: 180px;
+  }
+
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
   }
 `;
 
