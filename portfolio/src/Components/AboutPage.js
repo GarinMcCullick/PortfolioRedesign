@@ -111,7 +111,7 @@ const About = styled.div`
 `;
 
 const Section = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
   line-height: 1.8;
   display: flex;
   flex-wrap: row wrap;
