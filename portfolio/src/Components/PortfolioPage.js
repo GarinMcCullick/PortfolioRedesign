@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .swiper-pagination-bullet {
-    background-color: crimson !important;
+    background-color: white !important;
     opacity: 0.7;
     transition: all 0.3s ease;
   }
