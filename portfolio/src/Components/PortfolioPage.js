@@ -250,30 +250,60 @@ const GithubIcon = styled(FaGithub)`
   height: 100%;
 `;
 
+const DescriptionOverlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 3;
+
+  ${GridItem}:hover & {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+`;
+
 const projects = [
   {
-    title: "Project 1",
+    title: "Agency",
     imageSrc: process.env.PUBLIC_URL + "/AgencyPic.png",
     liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/NewWorldProject",
+    description:
+      "A gaming org site for New World built with React, Firebase, and Discord OAuth integration.",
   },
   {
-    title: "Project 2",
+    title: "Dobbs Custom",
+    imageSrc: process.env.PUBLIC_URL + "/dobbs.png",
+    liveLink: "https://dobbs-customs.web.app",
+    githubLink: "https://github.com/GarinMcCullick/DobbsCustom",
+    description:
+      "A simple storefront built with basic HTML and CSS for showcasing custom products.",
+  },
+  {
+    title: "Genesis",
+    imageSrc: process.env.PUBLIC_URL + "/genesisscreenshot.png",
+    liveLink: "https://genesis-rust.com",
+    githubLink: "",
+    description:
+      "A WordPress-based gaming site with custom PHP, Discord OAuth, role sync, and database integration.",
+  },
+  {
+    title: "FBG",
     imageSrc: process.env.PUBLIC_URL + "/fbgscreenshot.png",
     liveLink: "https://fbgrust.com",
     githubLink: "https://github.com/GarinMcCullick/FBGfrontend",
-  },
-  {
-    title: "Project 3",
-    imageSrc: process.env.PUBLIC_URL + "/Genesis.png",
-    liveLink: "https://genesisguild.net/",
-    githubLink: "",
-  },
-  {
-    title: "Project 4",
-    imageSrc: process.env.PUBLIC_URL + "/DobbsCustomsPic.png",
-    liveLink: "",
-    githubLink: "https://github.com/GarinMcCullick/DobbsCustoms",
+    description:
+      "A gaming org platform built with React, Firebase, Python backend, and Discord OAuth.",
   },
 ];
 
@@ -321,6 +351,9 @@ export default function PortfolioPage() {
                   <GridItem>
                     <Image src={project.imageSrc} alt={project.title} />
                     <ImageOverlay />
+                    <DescriptionOverlay>
+                      {project.description}
+                    </DescriptionOverlay>
                     <IconWrapper>
                       {project.liveLink && (
                         <a
