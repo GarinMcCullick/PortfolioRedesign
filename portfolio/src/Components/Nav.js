@@ -38,7 +38,7 @@ const Li = styled.li`
   color: white;
   &:hover {
     cursor: pointer;
-    color: #4682B4;
+    color: #4682b4;
   }
 `;
 
@@ -85,7 +85,7 @@ export default function Nav() {
           <Li>
             <LinkScroll
               activeClass="active"
-              to="Projects"
+              to="Portfolio"
               spy={true}
               smooth={true}
               offset={0}

@@ -1,406 +1,320 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { FaGlobe, FaGithub } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/autoplay";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
-// Global Swiper styles
 const GlobalStyle = createGlobalStyle`
-.swiper-wrapper {
-    transition-timing-function: linear !important;
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #eee;
   }
-  .swiper-button-next, .swiper-button-prev {
-    color: white !important;
-    position: absolute;
-    top: 50%;
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid white;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    transform: translateY(-50%);
-    padding: 12px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
+  a {
+    color: inherit;
+    text-decoration: none;
   }
-
-  .swiper-button-next {
-    right: 810px;
-    transform: translateY(-620%) rotate(180deg);
-  }
-
-  .swiper-button-prev {
-    left: 785px;
-    transform: translateY(-620%) rotate(180deg);
-  }
-
-  .swiper-button-next:hover, .swiper-button-prev:hover {
-    color: #fff !important;
-    background-color: crimson;
-    border-color: crimson;
-  }
-
-  .swiper-pagination-bullet {
-    background-color: white !important;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-  }
-
-  .swiper-pagination-bullet-active {
-    background-color: crimson !important;
-    opacity: 1;
-    transform: scale(1.2);
-  }
-
-  @media (min-width: 769px){
-    .swiper-button-next, .swiper-button-prev {
-      display: none;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .swiper-button-next, .swiper-button-prev {
-      display: none;
-    }
-
-    .swiper-pagination-bullet {
-      width: 10px;
-      height: 10px;
-    }
+  a:hover {
+    color: crimson;
   }
 `;
 
 const Container = styled.section`
+  width: 90vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  overflow: visible;
+`;
+
+const PageTitle = styled.header`
+  text-align: center;
+  margin-bottom: 80px;
+
+  h1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.3rem;
+    color: crimson;
+    font-weight: 600;
+  }
+`;
+
+const Section = styled.section`
+  height: auto;
+  min-height: 100%;
   width: 100%;
-  max-width: 1800px;
-  height: 100vh;
+  margin-bottom: ${(props) => (props.singleRow ? "40px" : "100px")};
+  overflow: visible;
+  @media (max-width: 768px) {
+    margin-bottom: ${(props) => (props.singleRow ? "30px" : "70px")};
+  }
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 2.3rem;
+  color: crimson;
+  border-bottom: 3px solid crimson;
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+  letter-spacing: 0.1rem;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+`;
+
+const CardContainerDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  overflow: visible;
+  gap: 32px;
+  justify-content: left;
+  width: 100%;
+  max-width: 100%;
+`;
+
+const Card = styled.div`
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  padding: 20px;
-  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* 3 cards per row */
+  width: calc((100% - 64px) / 3);
+  max-width: 380px;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgb(255 0 0 / 0.45);
+  }
+
+  @media (max-width: 992px) {
+    /* 2 cards per row */
+    width: calc((100% - 32px) / 2);
+  }
 
   @media (max-width: 768px) {
-    height: auto;
-    padding: 10px;
+    /* full width */
+    width: 100%;
   }
 `;
 
-const Title = styled.div`
-  text-align: center;
-  margin-bottom: 30px;
-
-  @media (max-width: 768px) {
-    margin-bottom: 20px;
-  }
-`;
-
-const H2 = styled.h2`
-  font-size: 48px;
-  letter-spacing: 0.2rem;
-  margin: 0;
-
-  @media (max-width: 768px) {
-    font-size: 36px;
-  }
-`;
-
-const H3 = styled.h3`
-  font-size: 24px;
-  color: crimson;
-  margin-top: 0.7rem;
-  margin-bottom: 0;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
-`;
-
-const SwiperContainer = styled.div`
-  position: relative;
-  width: 100%;
-  padding-bottom: 60px; // room for dots
-`;
-
-const SwiperWrapper = styled.div`
-  width: 100%;
-  height: 80%;
-  padding: 0 30px;
-  box-sizing: border-box;
-
-  @media (max-width: 768px) {
-    height: auto;
-    padding: 0;
-  }
-`;
-
-const PaginationWrapper = styled.div`
-  position: absolute;
-  bottom: 10px; // adjust as needed
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 10;
-  .custom-pagination {
-    justify-content: center;
-    display: flex;
-    gap: 10px;
-  }
-`;
-
-const GridItem = styled.div`
-  position: relative;
-  cursor: pointer;
-  height: 350px;
-  width: 90%;
-  max-width: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  margin: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+const ImageWrapper = styled.div`
+  flex-shrink: 0;
+  height: 200px;
   overflow: hidden;
-
-  &:hover img {
-    transform: scale(1.2);
-  }
+  border-bottom: 3px solid crimson;
 
   @media (max-width: 768px) {
-    height: 250px;
-    margin: 10px;
+    height: 160px;
   }
 `;
 
-const Image = styled.img`
+const ProjectImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  transform: scale(1);
+  transition: transform 0.4s ease;
 `;
 
-const ImageOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-
-  &:hover {
-    cursor: grab;
-  }
+const CardContent = styled.div`
+  padding: 28px 24px 32px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
-const IconWrapper = styled.div`
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  gap: 10px;
-
-  ${GridItem}:hover & {
-    display: flex;
-  }
+const ProjectTitle = styled.h3`
+  margin: 0 0 16px;
+  font-size: 1.7rem;
 `;
 
-const Icon = styled.div`
-  font-size: 2rem;
-  width: 40px;
-  height: 40px;
+const Description = styled.p`
+  flex-grow: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+`;
+
+const Links = styled.div`
+  margin-top: 28px;
+  display: flex;
+  gap: 20px;
+`;
+
+const LinkButton = styled.a`
+  flex: 1;
+  background: crimson;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  padding: 14px 0;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ccc;
-  transition: all 0.3s ease;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: #454545;
+  gap: 10px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
 
   &:hover {
-    color: ${({ hoverColor }) => hoverColor};
-    background-color: #ccc;
-    transform: scale(1.1);
+    background: #b00020;
+    color: white;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 `;
 
-const GlobeIcon = styled(FaGlobe)`
-  width: 100%;
-  height: 100%;
-`;
-
-const GithubIcon = styled(FaGithub)`
-  width: 100%;
-  height: 100%;
-`;
-
-const DescriptionOverlay = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-  color: black;
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  line-height: 1.5;
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
-  z-index: 3;
-
-  ${GridItem}:hover & {
-    transform: translateY(0);
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-`;
-
-const DP = styled.p`
-  margin: 0.5rem;
-  @media (max-width: 768px) {
-    margin: 0;
-    padding: 0;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
-  }
-`;
+// Placeholder image in case of missing assets
+const placeholderImg = "https://via.placeholder.com/600x400?text=Project+Image";
 
 const projects = [
+  // Website Projects
   {
-    title: "Agency",
-    imageSrc: process.env.PUBLIC_URL + "/AgencyPic.png",
-    liveLink: "",
-    githubLink: "https://github.com/GarinMcCullick/NewWorldProject",
+    category: "website",
+    title: "FBG",
+    imageSrc: process.env.PUBLIC_URL + "/fbgscreenshot.png" || placeholderImg,
+    liveLink: "https://fbgrust.com",
+    githubLink: "https://github.com/GarinMcCullick/FBGfrontend",
     description:
-      "A gaming org site for New World built with React, Firebase, and Discord OAuth integration.",
+      "A gaming org platform built with React, Firebase, Python backend, and Discord OAuth.",
   },
   {
-    title: "Dobbs Custom",
-    imageSrc: process.env.PUBLIC_URL + "/DobbsCustomsPic.png",
-    liveLink: "",
-    githubLink: "https://github.com/GarinMcCullick/DobbsCustom",
-    description:
-      "A simple storefront built with basic HTML and CSS for showcasing custom products.",
-  },
-  {
+    category: "website",
     title: "Genesis",
-    imageSrc: process.env.PUBLIC_URL + "/Genesis.png",
+    imageSrc: process.env.PUBLIC_URL + "/Genesis.png" || placeholderImg,
     liveLink: "https://genesisguild.net",
     githubLink: "",
     description:
       "A WordPress-based gaming site with custom PHP, Discord OAuth, role sync, and database integration.",
   },
   {
-    title: "FBG",
-    imageSrc: process.env.PUBLIC_URL + "/fbgscreenshot.png",
-    liveLink: "https://fbgrust.com",
-    githubLink: "https://github.com/GarinMcCullick/FBGfrontend",
+    category: "website",
+    title: "Agency",
+    imageSrc: process.env.PUBLIC_URL + "/AgencyPic.png" || placeholderImg,
+    liveLink: "",
+    githubLink: "https://github.com/GarinMcCullick/NewWorldProject",
     description:
-      "A gaming org platform built with React, Firebase, Python backend, and Discord OAuth.",
+      "A gaming org site for New World built with React, Firebase, and Discord OAuth integration.",
+  },
+  {
+    category: "website",
+    title: "Dobbs Custom",
+    imageSrc: process.env.PUBLIC_URL + "/DobbsCustomsPic.png" || placeholderImg,
+    liveLink: "",
+    githubLink: "https://github.com/GarinMcCullick/DobbsCustom",
+    description:
+      "A simple storefront built with basic HTML and CSS for showcasing custom products.",
+  },
+  // Software Projects
+  {
+    category: "software",
+    title: "FollowUp.ai",
+    imageSrc: process.env.PUBLIC_URL + "/followupaipic.png" || placeholderImg,
+    liveLink: "",
+    githubLink: "https://github.com/GarinMcCullick/followup.ai",
+    description:
+      "This is a chrome extension with a localhost site and python flask backend that uses OpenAI's API to generate follow-up emails by scraping jobsite job postings.",
+  },
+  {
+    category: "software",
+    title: "Active Directory Tooling",
+    imageSrc: process.env.PUBLIC_URL + "/adtoolingpic.png" || placeholderImg,
+    liveLink: "",
+    githubLink: "https://github.com/GarinMcCullick/Public-AD-Tooling",
+    description:
+      "A Microsoft-only PowerShell tool with GUI that adds users to specific OUs individually or in bulk, logs actions, and drafts welcome emails automatically.",
+  },
+  // Apps
+  {
+    category: "app",
+    title: "LawnFinder",
+    imageSrc: process.env.PUBLIC_URL + "/LawnFinderpic.png" || placeholderImg,
+    liveLink: "",
+    githubLink: "",
+    description:
+      "A mobile app, built with Swift, Firebase, and Google Cloud Storage, that connects users with local lawn care providers. Currently in development.",
   },
 ];
 
+// Helper to determine if only one row (<=3 projects)
+const isSingleRow = (count) => count > 0 && count <= 3;
+
 export default function PortfolioPage() {
+  const getProjectsByCategory = (category) =>
+    projects.filter((p) => p.category === category);
+
   return (
     <>
       <GlobalStyle />
-      <Container id="Projects">
-        <Title>
-          <H2>Portfolio</H2>
-          <H3>Most recent work</H3>
-        </Title>
-        <SwiperContainer>
-          <SwiperWrapper>
-            <Swiper
-              spaceBetween={20}
-              slidesPerView={2}
-              loop={true}
-              centeredSlides={true}
-              modules={[Pagination, Navigation, Autoplay]}
-              direction="horizontal"
-              pagination={{ el: ".custom-pagination", clickable: true }}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }}
-              speed={8000}
-              autoplay={{
-                delay: 1,
-                disableOnInteraction: true,
-                pauseOnMouseEnter: false,
-              }}
-              touchRatio={1}
-              threshold={20}
-              allowTouchMove={true}
-              simulateTouch={true}
-              breakpoints={{
-                1024: { slidesPerView: 3 },
-                768: { slidesPerView: 2 },
-                480: { slidesPerView: 1 },
-              }}
-            >
-              {projects.map((project, index) => (
-                <SwiperSlide key={index}>
-                  <GridItem>
-                    <Image src={project.imageSrc} alt={project.title} />
-                    <ImageOverlay />
-                    <DescriptionOverlay>
-                      <DP>{project.description}</DP>
-                    </DescriptionOverlay>
-                    <IconWrapper>
-                      {project.liveLink && (
-                        <a
-                          href={project.liveLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Icon hoverColor="crimson">
-                            <GlobeIcon />
-                          </Icon>
-                        </a>
-                      )}
-                      {project.githubLink && (
-                        <a
-                          href={project.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Icon hoverColor="crimson">
-                            <GithubIcon />
-                          </Icon>
-                        </a>
-                      )}
-                    </IconWrapper>
-                  </GridItem>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </SwiperWrapper>
-          <PaginationWrapper>
-            <div className="custom-pagination"></div>
-          </PaginationWrapper>
-        </SwiperContainer>
+      <Container id="Portfolio">
+        <PageTitle>
+          <h1>Portfolio</h1>
+          <p>Most Recent Work</p>
+        </PageTitle>
+
+        {["website", "software", "app"].map((category) => {
+          const categoryProjects = getProjectsByCategory(category);
+          const singleRow = isSingleRow(categoryProjects.length);
+
+          const sectionTitle =
+            category === "app"
+              ? "Apps"
+              : category.charAt(0).toUpperCase() +
+                category.slice(1) +
+                " Projects";
+
+          return (
+            <Section key={category} singleRow={singleRow}>
+              <SectionTitle>{sectionTitle}</SectionTitle>
+              <CardContainerDiv>
+                {categoryProjects.map((project, i) => (
+                  <Card key={i}>
+                    <ImageWrapper>
+                      <ProjectImage
+                        src={project.imageSrc}
+                        alt={project.title}
+                      />
+                    </ImageWrapper>
+                    <CardContent>
+                      <ProjectTitle>{project.title}</ProjectTitle>
+                      <Description>{project.description}</Description>
+                      <Links>
+                        {project.liveLink && (
+                          <LinkButton
+                            href={project.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Live demo of ${project.title}`}
+                          >
+                            <FaGlobe /> Live Page
+                          </LinkButton>
+                        )}
+                        {project.githubLink && (
+                          <LinkButton
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`GitHub repo of ${project.title}`}
+                          >
+                            <FaGithub /> GitHub
+                          </LinkButton>
+                        )}
+                      </Links>
+                    </CardContent>
+                  </Card>
+                ))}
+              </CardContainerDiv>
+            </Section>
+          );
+        })}
       </Container>
     </>
   );
