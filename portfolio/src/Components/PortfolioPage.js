@@ -206,10 +206,10 @@ const projects = [
   },
   {
     category: "website",
-    title: "Dobbs Custom",
+    title: "Dobbs Customs",
     imageSrc: process.env.PUBLIC_URL + "/DobbsCustomsPic.png" || placeholderImg,
     liveLink: "",
-    githubLink: "https://github.com/GarinMcCullick/DobbsCustom",
+    githubLink: "https://github.com/GarinMcCullick/DobbsCustoms",
     description:
       "A simple storefront built with basic HTML and CSS for showcasing custom products.",
   },
