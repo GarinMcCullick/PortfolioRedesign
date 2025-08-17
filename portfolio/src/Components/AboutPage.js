@@ -21,7 +21,7 @@ const moveAnimation = keyframes`
 `;
 
 const Container = styled.section`
-  height: 100vh;
+  height: 105vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -46,14 +46,21 @@ const InnerContainer = styled.div`
 `;
 
 const Title = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-align: center;
+  width: 38%;
+  justify-self: end;
+  @media (max-width: 1000px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 const H2 = styled.h2`
   font-size: 2.5rem;
   letter-spacing: 0.05rem;
   font-weight: bold;
+  margin-bottom: 1rem;
 `;
 
 const H3 = styled.h3`
@@ -66,10 +73,10 @@ const Body = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: calc(100vh - 150px); /* Adjust height to fit within 100vh */
+  height: 100%;
   overflow: hidden;
   @media (max-width: 1000px) {
-    height: auto;
+    height: 100%;
   }
 `;
 
@@ -103,7 +110,7 @@ const About = styled.div`
   width: 100%;
   padding-right: 2rem;
   overflow-y: auto; /* Enables scrolling */
-  max-height: 100vh;
+  max-height: 90vh;
   @media (max-width: 1000px) {
     padding-right: 0;
     max-height: none;
@@ -155,11 +162,11 @@ const StyledButton = styled.a`
   font-weight: bold;
   transition: 0.3s ease-in-out;
   box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
-  margin-top: 2rem;
 
   &:hover {
     background: #ff3b5a;
     box-shadow: 0 0 15px rgba(220, 20, 60, 0.7);
+    color: white;
   }
 
   svg {
@@ -173,8 +180,8 @@ export default function AboutPage() {
       <InnerContainer>
         <div>
           <Title>
-            <H2>About Me</H2>
-            <H3>My Introduction</H3>
+            <H2>Professional Focus</H2>
+            <H3>Driving Impact Through Technology</H3>
           </Title>
 
           <Body>
@@ -189,59 +196,46 @@ export default function AboutPage() {
               <Section>
                 <h2>Development Expertise</h2>
                 <p>
-                  I specialize in <strong>HTML, CSS, and JavaScript</strong>{" "}
-                  with advanced knowledge of <strong>PHP and MySQL</strong>,
-                  allowing me to build{" "}
-                  <strong>dynamic, scalable web applications</strong>. I also
-                  have intermediate proficiency in{" "}
-                  <strong>React, WordPress, Laravel, Java, and Python</strong>,
-                  ensuring versatility across the stack.
+                  Building <strong>dynamic, scalable web applications </strong>
+                  that turn complex problems into intuitive, functional
+                  experiences. delivering business solutions that drive results,
+                  streamline processes, and create measurable value.
                 </p>
               </Section>
 
               <Section>
                 <h2>IT & Cloud Administration</h2>
                 <p>
-                  With <strong>advanced expertise</strong> in{" "}
+                  Ensuring organizations operate securely and efficiently in the
+                  cloud. Expertise in{" "}
                   <strong>
-                    Microsoft Entra ID, Google Admin Console, and SQL databases
+                    Microsoft Entra ID, Google Admin Console, and SQL&nbsp;
                   </strong>
-                  , I help businesses manage{" "}
-                  <strong>identity, security, and infrastructure</strong>. My
-                  experience in{" "}
-                  <strong>
-                    Microsoft 365 Admin, Copilot, Intune, Windows Admin Center,
-                    and Google Cloud IAM
-                  </strong>{" "}
-                  ensures seamless cloud operations.
+                  enables smooth identity, security, and infrastructure
+                  management.
                 </p>
               </Section>
 
               <Section>
                 <h2>Networking & Systems Management</h2>
                 <p>
-                  I have experience with{" "}
-                  <strong>
-                    TCP/IP, DHCP, Avaya IP, Cisco, Dell, and NetGear systems
-                  </strong>
-                  . My work with{" "}
-                  <strong>
-                    Active Directory, Adtran, and enterprise networking hardware
-                  </strong>{" "}
-                  optimizes{" "}
-                  <strong>performance, security, and scalability</strong>.
+                  Connecting people and systems seamlessly. Overseeing networks,
+                  servers, and virtualized environments ensures operations
+                  remain reliable, scalable, and secure—supporting business
+                  continuity and growth.
                 </p>
               </Section>
 
               <Section>
                 <h2>EdTech & Enterprise Software</h2>
                 <p>
-                  I have <strong>expertise</strong> in managing{" "}
+                  Streamlining education and organizational operations.
+                  Leveraging platforms like{" "}
                   <strong>
                     PowerSchool, SpiceWorks, Canvas, Clever, and Jenzabar
                   </strong>
-                  , helping institutions streamline{" "}
-                  <strong>IT, education, and enterprise operations</strong>.
+                  &nbsp; turns complex workflows into intuitive, efficient
+                  systems that empower staff and students alike.
                 </p>
               </Section>
 

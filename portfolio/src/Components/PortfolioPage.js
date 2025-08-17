@@ -18,8 +18,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Container = styled.section`
-  width: 90vw;
-  max-width: 1200px;
+  width: 75vw;
+  max-width: 90vw;
   margin: 0 auto;
   padding: 60px 20px;
   overflow: visible;
@@ -69,14 +69,13 @@ const CardContainerDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   overflow: visible;
-  gap: 32px;
+  gap: 42px;
   justify-content: left;
   width: 100%;
   max-width: 100%;
 `;
 
 const Card = styled.div`
-  background: #1f1f1f;
   border-radius: 12px;
   overflow: visible;
   display: flex;
@@ -85,11 +84,10 @@ const Card = styled.div`
 
   /* 3 cards per row */
   width: calc((100% - 64px) / 3);
-  max-width: 380px;
+  max-width: 420px;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgb(255 0 0 / 0.45);
   }
 
   @media (max-width: 992px) {
@@ -131,6 +129,37 @@ const CardContent = styled.div`
 const ProjectTitle = styled.h3`
   margin: 0 0 16px;
   font-size: 1.7rem;
+`;
+
+const Stack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+`;
+
+const TechItem = styled.span`
+  display: inline-block;
+  background: ${(props) => props.bgColor || "#333"};
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.3s ease;
+  transform-origin: center center;
+  will-change: transform;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: default;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
 `;
 
 const Description = styled.p`
@@ -184,7 +213,8 @@ const projects = [
     liveLink: "https://fbgrust.com",
     githubLink: "https://github.com/GarinMcCullick/FBGfrontend",
     description:
-      "A gaming org platform built with React, Firebase, Python backend, and Discord OAuth.",
+      "Centralized management for a gaming organization by creating a platform that tracks members, events, and game stats. Built with React frontend and Flask backend, integrated Firebase for real-time updates, and Discord OAuth for secure member login.",
+    stack: ["React.js", "Python", "Flask", "Firebase", "Discord API"],
   },
   {
     category: "website",
@@ -193,7 +223,8 @@ const projects = [
     liveLink: "https://genesisguild.net",
     githubLink: "",
     description:
-      "A WordPress-based gaming site with custom PHP, Discord OAuth, role sync, and database integration.",
+      "Supported a community of over 300 active members on a WordPress gaming site by implementing custom PHP features, database integration, and Discord OAuth for automated role synchronization and user management.",
+    stack: ["PHP", "Python", "MySQL", "Discord API", "WordPress"],
   },
   {
     category: "website",
@@ -202,7 +233,8 @@ const projects = [
     liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/NewWorldProject",
     description:
-      "A gaming org site for New World built with React, Firebase, and Discord OAuth integration.",
+      "Streamlined a gaming organization's website by creating a React frontend with Firebase backend, integrating Discord OAuth for automated member authentication.",
+    stack: ["React.js", "Firebase", "Discord API"],
   },
   {
     category: "website",
@@ -211,7 +243,8 @@ const projects = [
     liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/DobbsCustoms",
     description:
-      "A simple storefront built with basic HTML and CSS for showcasing custom products.",
+      "Built a simple, responsive storefront to showcase custom products, using HTML, CSS, and JavaScript to provide a clean, user-friendly browsing experience.",
+    stack: ["HTML5", "CSS3", "JavaScript"],
   },
   // Software Projects
   {
@@ -221,7 +254,8 @@ const projects = [
     liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/followup.ai",
     description:
-      "This is a chrome extension with a localhost site and python flask backend that uses OpenAI's API to generate follow-up emails by scraping jobsite job postings.",
+      "Automated follow-up email generation by scraping job postings and using OpenAI's API. Built as a Chrome extension with a React frontend and Flask backend to streamline job application workflows.",
+    stack: ["React.js", "Python", "Flask", "OpenAI"],
   },
   {
     category: "software",
@@ -230,7 +264,8 @@ const projects = [
     liveLink: "",
     githubLink: "https://github.com/GarinMcCullick/Public-AD-Tooling",
     description:
-      "A Microsoft-only PowerShell tool with GUI that adds users to specific OUs individually or in bulk, logs actions, and drafts welcome emails automatically.",
+      "Simplified user management in Microsoft environments by creating a PowerShell GUI tool that adds users individually or in bulk, logs actions, and drafts automated welcome emails.",
+    stack: ["PowerShell"],
   },
   // Apps
   {
@@ -240,7 +275,8 @@ const projects = [
     liveLink: "",
     githubLink: "",
     description:
-      "A mobile app, built with Swift, Firebase, and Google Cloud Storage, that connects users with local lawn care providers. Currently in development.",
+      "Connecting local users with lawn care providers via a mobile app built in Swift. Integrated Firebase and Google Cloud Storage to manage user data and provider listings efficiently.",
+    stack: ["Swift", "Firebase", "Google Cloud Storage"],
   },
 ];
 
@@ -251,6 +287,25 @@ export default function PortfolioPage() {
   const getProjectsByCategory = (category) =>
     projects.filter((p) => p.category === category);
 
+  function getTechColor(tech) {
+    const frontend = ["React.js", "JavaScript", "CSS3", "HTML5", "Swift"];
+    const backend = ["Node.js", "Python", "Flask", "PHP", "MySQL", "SQL"];
+    const services = ["Discord API", "OAuth", "REST", "OpenAI"];
+    const cloud = [
+      "Firebase",
+      "PowerShell",
+      "WordPress",
+      "Google Cloud Storage",
+      "Azure",
+    ];
+
+    if (frontend.includes(tech)) return "#c23355"; // lighter crimson for frontend
+    if (backend.includes(tech)) return "#b00020"; // deep crimson for backend
+    if (services.includes(tech)) return "#5865F2"; // Discord blurple for services
+    if (cloud.includes(tech)) return "#4361ee"; // steel blue for cloud/infra
+    return "#444"; // fallback gray
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -260,7 +315,7 @@ export default function PortfolioPage() {
           <p>Most Recent Work</p>
         </PageTitle>
 
-        {["website", "software", "app"].map((category) => {
+        {["software", "website", "app"].map((category) => {
           const categoryProjects = getProjectsByCategory(category);
           const singleRow = isSingleRow(categoryProjects.length);
 
@@ -286,6 +341,14 @@ export default function PortfolioPage() {
                     <CardContent>
                       <ProjectTitle>{project.title}</ProjectTitle>
                       <Description>{project.description}</Description>
+                      <Stack>
+                        {project.stack &&
+                          project.stack.map((tech, index) => (
+                            <TechItem key={index} bgColor={getTechColor(tech)}>
+                              {tech}
+                            </TechItem>
+                          ))}
+                      </Stack>
                       <Links>
                         {project.liveLink && (
                           <LinkButton

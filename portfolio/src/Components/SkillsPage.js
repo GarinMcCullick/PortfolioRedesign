@@ -4,14 +4,12 @@ import ITPage from "./ITSkills";
 import ProgrammingPage from "./ProgrammingPage";
 
 export default function SkillsPage() {
-  const [showProgramming, setShowProgramming] = useState(true);
+  const [showProgramming, setShowProgramming] = useState(false);
 
   const Container = styled.section`
-    height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     @media (max-width: 1000px) {
       height: auto;
@@ -19,16 +17,13 @@ export default function SkillsPage() {
   `;
 
   const Title = styled.div`
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
   `;
 
   const H2 = styled.h2`
     font-size: 48px;
+    margin-bottom: 0.5rem;
     @media (max-width: 768px) {
       font-size: 36px;
     }
@@ -43,120 +38,80 @@ export default function SkillsPage() {
   `;
 
   const bounce = keyframes`
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-15px);
-    }
-    60% {
-      transform: translateY(-7px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  `;
+
+  const fadeIn = keyframes`
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
   `;
 
   const Switch = styled.div`
-    margin-top: 2rem;
-    display: flex;
-    width: 40%;
-    height: 60px;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 25px;
-    background-color: white;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     position: relative;
-    z-index: 1;
-
+    display: flex;
+    width: 70%;
+    max-width: 600px;
+    height: 70px;
+    background: #f0f0f0;
+    border-radius: 35px;
+    box-shadow: 0 12px 30px 2px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
     @media (max-width: 768px) {
-      width: 80%;
-      height: 50px;
+      width: 90%;
+      height: 60px;
     }
   `;
 
+  const fillAnimation = keyframes`
+    0% { width: 0; left: 0; }
+    50% { width: 100%; left: 0; }
+    100% { width: 50%; left: ${showProgramming ? "50%" : "0"}; }
+  `;
+
+  const ActiveIndicator = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: linear-gradient(135deg, crimson, #ff4d6d);
+    border-radius: 35px;
+    left: ${(props) => (props.active ? "50%" : "0")};
+    animation: ${fillAnimation} 0.6s ease forwards;
+    z-index: 0;
+  `;
+
   const SwitchButton = styled.div`
-    font-size: 40px;
     flex: 1;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    background-color: ${(props) => (props.active ? "crimson" : "white")};
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
     color: ${(props) => (props.active ? "white" : "crimson")};
+    cursor: pointer;
     position: relative;
-    z-index: 2;
-    overflow: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    /* Slanted middle using clip-path */
-    clip-path: ${(props) =>
-      props.left
-        ? "polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%)"
-        : "polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0% 50%)"};
-
+    z-index: 1;
+    transition: color 0.3s ease;
     @media (max-width: 768px) {
-      font-size: 24px;
+      font-size: 18px;
     }
 
-    p {
-      margin: 0;
-      text-decoration: none;
-      position: relative;
-      display: inline-block;
-      z-index: 2;
-
-      span {
-        display: inline-block;
-        vertical-align: middle;
-      }
-
-      .letter {
-        animation: ${(props) => (props.active ? bounce : "none")} 2s ease
-          infinite;
-      }
-
-      /* Default underline */
-      &:after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: -2px;
-        width: 0%;
-        height: 2px;
-        background-color: crimson;
-        transition: width 0.3s ease-in-out, left 0.3s ease-in-out,
-          background-color 0.3s ease-in-out;
-      }
+    .letter {
+      animation: ${(props) => (!props.active ? bounce : "none")} 1.8s ease
+        infinite;
     }
+  `;
 
-    /* Hover effect for background expansion */
-    &.not-active::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #4682b4;
-      transform: scaleX(0);
-      transform-origin: ${(props) => (props.left ? "right" : "left")};
-      transition: transform 0.3s ease-in-out;
-      z-index: 1;
-    }
-
-    &.not-active:hover::before {
-      transform: scaleX(1);
-    }
-
-    &.not-active:hover {
-      color: white;
-    }
-
-    /* Change underline to blue on hover & expand outward */
-    &.not-active:hover p:after {
-      width: 100%;
-      left: 0;
-      background-color: #4682b4; /* Change underline to blue */
-    }
+  const FadeWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    animation: ${fadeIn} 0.5s ease;
   `;
 
   return (
@@ -165,48 +120,34 @@ export default function SkillsPage() {
         <H2>Skills</H2>
         <H3>My Technical Experience</H3>
       </Title>
+
       <Switch>
-        <SwitchButton
-          onClick={() => setShowProgramming(true)}
-          active={showProgramming}
-          left
-          className={showProgramming ? "active" : "not-active"}
-        >
-          <p className={showProgramming ? "active" : ""}>
-            {showProgramming ? (
-              <>
-                {Array.from("Programming").map((char, index) => (
-                  <span key={index} className="letter">
-                    {char}
-                  </span>
-                ))}
-              </>
-            ) : (
-              "Programming"
-            )}
-          </p>
-        </SwitchButton>
+        <ActiveIndicator active={showProgramming} />
         <SwitchButton
           onClick={() => setShowProgramming(false)}
           active={!showProgramming}
-          className={!showProgramming ? "active" : "not-active"}
         >
-          <p className={!showProgramming ? "active" : ""}>
-            {!showProgramming ? (
-              <>
-                {Array.from("IT").map((char, index) => (
-                  <span key={index} className="letter">
-                    {char}
-                  </span>
-                ))}
-              </>
-            ) : (
-              "IT"
-            )}
-          </p>
+          {Array.from("IT").map((c, i) => (
+            <span key={i} className="letter">
+              {c}
+            </span>
+          ))}
+        </SwitchButton>
+        <SwitchButton
+          onClick={() => setShowProgramming(true)}
+          active={showProgramming}
+        >
+          {Array.from("Programming").map((c, i) => (
+            <span key={i} className="letter">
+              {c}
+            </span>
+          ))}
         </SwitchButton>
       </Switch>
-      {showProgramming ? <ProgrammingPage /> : <ITPage />}
+
+      <FadeWrapper key={showProgramming}>
+        {showProgramming ? <ProgrammingPage /> : <ITPage />}
+      </FadeWrapper>
     </Container>
   );
 }

@@ -128,7 +128,7 @@ const Box = styled.div`
   cursor: pointer;
   overflow: hidden;
   margin-bottom: 10%;
-
+  border-radius: 10%;
   &:hover {
     animation: ${backgroundAnimation} 0.5s ease forwards,
       ${glowAnimation} 0.5s ease forwards;

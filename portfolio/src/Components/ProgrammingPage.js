@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 
 const Container = styled.div`
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -12,7 +11,7 @@ const Container = styled.div`
   padding: 2rem;
   background: transparent;
   color: white;
-
+  margin-top: 8%;
   @media (max-width: 1000px) {
     height: auto;
     padding-top: 5rem;

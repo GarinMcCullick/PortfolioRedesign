@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 
 const Container = styled.div`
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -40,7 +39,7 @@ const Box = styled.div`
   box-shadow: 0 0 15px rgba(220, 20, 60, 0.1);
   backdrop-filter: blur(10px);
   overflow: auto;
-  max-height: 70vh;
+  max-height: 80vh;
   padding: 1.5rem;
 
   @media (max-width: 1000px) {
@@ -89,7 +88,7 @@ const H4 = styled.h4`
 `;
 
 const ServicesDiv = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 `;
 
 const Ul = styled.ul`

@@ -204,6 +204,7 @@ const DoubleDown = styled(IoTrendingDownOutline)`
   font-size: 70px;
   color: crimson;
   transform: rotate(45deg); /* Rotate arrow to point downwards */
+  cursor: pointer; /* Makes hover show pointer */
 `;
 
 export default function LandingPage() {
@@ -243,7 +244,13 @@ export default function LandingPage() {
               </a>
             </Icons>
             <br />
-            <Span2>
+            <Span2
+              onClick={() => {
+                const about = document.getElementById("About");
+                if (about) about.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {/*Dont like using onclick for scrolling however doing it the proper way with href(#About) causes delay with the Link import in the navbar*/}
               <DoubleDown />
             </Span2>
           </Div>
